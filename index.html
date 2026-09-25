@@ -1023,45 +1023,51 @@ footer p {
 }
 
 
-/* 最外層大框框 */
+/* 聯絡方式最外層框框 */
+
 .contact-box {
     background: #ffffff;
     border: 2px solid #e8b8c4;
     border-radius: 20px;
-    padding: 35px;
+    padding: 30px;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 20px;
 
-    box-shadow:
-        0 8px 30px rgba(190, 100, 125, 0.10);
-
-    position: relative;
+    box-shadow: 0 10px 35px rgba(190, 100, 125, 0.10);
 }
 
 
-/* 三個小框框 */
+/* 三個聯絡方式小框 */
+
 .contact-card {
     background: #fffafb;
-    border: 1px solid #efd5dc;
+    border: 1px solid #efd7de;
     border-radius: 15px;
-    padding: 28px 20px;
+
+    padding: 25px 20px;
+
     text-align: center;
 
-    transition: all 0.25s ease;
+    transition: 0.25s;
 }
 
 .contact-card:hover {
     transform: translateY(-5px);
+
     border-color: #d98b9b;
-    box-shadow: 0 8px 22px rgba(190, 100, 125, 0.12);
+
+    box-shadow: 0 10px 25px rgba(190, 100, 125, 0.12);
 }
 
 
 /* 圓形圖示 */
+
 .contact-icon {
     width: 58px;
     height: 58px;
+
     margin: 0 auto 15px;
 
     border-radius: 50%;
@@ -1076,44 +1082,55 @@ footer p {
     align-items: center;
     justify-content: center;
 
-    color: #ffffff;
+    color: white;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 
-/* 標題 */
+/* 聯絡方式標題 */
+
 .contact-content h3 {
     margin: 5px 0 8px;
+
     color: #8f4d62;
+
     font-size: 19px;
 }
 
 
 /* 說明文字 */
+
 .contact-content p {
     color: #77666c;
+
     font-size: 13px;
+
     line-height: 1.7;
+
     min-height: 45px;
+
     margin-bottom: 10px;
 }
 
 
 /* 按鈕 */
+
 .contact-button {
     display: inline-block;
 
     margin-top: 8px;
 
-    padding: 10px 24px;
+    padding: 9px 22px;
 
     border-radius: 25px;
 
     background: #d98b9b;
-    color: #ffffff;
+
+    color: white;
 
     text-decoration: none;
+
     font-size: 13px;
 
     transition: 0.25s;
@@ -1121,35 +1138,112 @@ footer p {
 
 .contact-button:hover {
     background: #c8758b;
-    transform: translateY(-2px);
 }
 
 
 /* 手機版 */
+
 @media (max-width: 768px) {
-
-    .contact-section {
-        margin: 60px auto;
-        padding: 0 18px;
-    }
-
-    .contact-section .section-title h2 {
-        font-size: 26px;
-    }
 
     .contact-box {
         grid-template-columns: 1fr;
         padding: 20px;
-        gap: 15px;
     }
 
     .contact-card {
         padding: 24px 18px;
     }
+
 }
+</section>
+<section id="contact" class="contact-section">
+
+    <div class="section-title">
+
+        <small>CONTACT</small>
+
+        <h2>聯絡方式</h2>
+
+        <p>
+            想了解目前可以安排的女生？
+        </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                TG
+            </div>
+
+            <div class="contact-content">
+
+                <h3>Telegram</h3>
+
+                <p>
+                    Telegram 聯絡方式
+                </p>
+
+                <a href="#" class="contact-button">
+                    前往聯絡
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                G
+            </div>
+
+            <div class="contact-content">
+
+                <h3>Gleezy</h3>
+
+                <p>
+                    Gleezy 聯絡方式
+                </p>
+
+                <a href="#" class="contact-button">
+                    前往聯絡
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                LINE
+            </div>
+
+            <div class="contact-content">
+
+                <h3>LINE</h3>
+
+                <p>
+                    LINE 聯絡方式
+                </p>
+
+                <a href="#" class="contact-button">
+                    前往聯絡
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
-
 
 <!-- =====================
      Footer
