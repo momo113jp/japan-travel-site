@@ -1,45 +1,616 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>日本暗黑旅遊資訊｜東京大阪外送茶攻略</title>
+    <title>小櫻｜東京大阪外送茶攻略</title>
 
-    <meta name="description" content="整理日本東京、大阪旅遊資訊，包含景點、交通、酒店與實用旅遊攻略。">
+    <meta name="description"
+        content="東京大阪外送，整理東京、大阪外送茶、交通、住宿、景點、地區與暗黑旅行資訊。">
 
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Arial,
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                sans-serif;
+            color: #333;
+            background: #f7f5f3;
+            line-height: 1.8;
+        }
+
+        /* ===== Header ===== */
+
+        header {
+            height: 72px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e0dc;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #7d2639;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            font-weight: bold;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 8px;
+            color: #999;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #7d2639;
+        }
+
+        /* ===== Hero ===== */
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(75, 30, 45, 0.92),
+                    rgba(65, 30, 42, 0.92)
+                );
+
+            color: white;
+            padding: 85px 8%;
+        }
+
+        .hero small {
+            color: #dca8b5;
+            letter-spacing: 4px;
+            font-size: 12px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin: 18px 0 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            color: #eee;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        /* ===== Main ===== */
+
+        main {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 25px;
+        }
+
+        .section-title {
+            margin-bottom: 35px;
+        }
+
+        .section-title small {
+            color: #8b3046;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            margin: 8px 0;
+            font-size: 32px;
+        }
+
+        /* ===== Cards ===== */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e6e0dc;
+            padding: 28px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #542332;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .card a {
+            color: #8b3046;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        /* ===== Notice ===== */
+
+        .notice {
+            background: white;
+            border: 1px solid #e5ded9;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            margin-bottom: 70px;
+        }
+
+        .notice-title {
+            background: #eee4df;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #632638;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .notice-content {
+            padding: 30px;
+        }
+
+        .notice-content h3 {
+            margin-top: 0;
+        }
+
+        /* ===== Area ===== */
+
+        .area-section {
+            margin-top: 70px;
+        }
+
+        /* ===== Address ===== */
+
+        .address-section {
+            margin-top: 70px;
+        }
+
+        .address-box {
+            background: #302a2d;
+            color: white;
+            padding: 35px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .address-box h3 {
+            margin-top: 0;
+            color: #e8c5cd;
+        }
+
+        .address-box p {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .address-label {
+            font-size: 12px;
+            color: #c58b98;
+            letter-spacing: 2px;
+        }
+
+        /* ===== Footer ===== */
+
+        footer {
+            background: #211e20;
+            color: white;
+
+            padding: 35px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer strong {
+            font-size: 16px;
+        }
+
+        footer p {
+            margin: 5px 0 0;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        /* ===== Mobile ===== */
+
+        @media (max-width: 700px) {
+
+            header {
+                height: auto;
+                padding: 18px 20px;
+
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 60px 25px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .notice {
+                grid-template-columns: 1fr;
+            }
+
+            .address-box {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>日本暗黑旅遊資訊</h1>
+    <!-- Header -->
 
-    <p>
-        歡迎來到日本旅遊資訊網站。
-        這裡整理東京、大阪的外送茶資訊，
-        幫助第一次來日本旅行的旅客更容易安排行程。
-    </p>
+    <header>
 
-    <h2>東京外送茶</h2>
+        <div class="logo">
 
-    <p>
-        東京是日本最大的城市之一，
-        可以了解新宿、澀谷、池袋、上野、東京車站等熱門地區。
-    </p>
+            <div class="logo-icon">
+                日
+            </div>
 
-    <h2>大阪外送茶</h2>
+            <div class="logo-text">
+                <strong>東京大阪外送茶</strong>
+                <span>JAPAN NIGHTLIFE</span>
+            </div>
 
-    <p>
-        大阪是日本熱門旅遊城市，
-        可以了解難波、心齋橋、梅田、道頓堀等地區。
-    </p>
+        </div>
 
-    <h2>日本暗黑之旅攻略</h2>
+        <nav>
+            <a href="#">首頁</a>
+            <a href="#">東京</a>
+            <a href="#">大阪</a>
+            <a href="#">攻略資訊</a>
+            <a href="#">繁體中文</a>
+        </nav>
 
-    <p>
-        整理日本交通、酒店、景點以及旅行注意事項，
-        讓旅客可以更方便地規劃日本暗黑旅行。
-    </p>
+    </header>
+
+
+    <!-- Hero -->
+
+    <section class="hero">
+
+        <small>JAPAN GUIDE</small>
+
+        <h1>東京大阪外送茶</h1>
+
+        <p>
+            東京・大阪外送茶攻略、交通、住宿與地區資訊
+        </p>
+
+    </section>
+
+
+    <main>
+
+
+        <!-- Important Notice -->
+
+        <section>
+
+            <div class="section-title">
+
+                <small>IMPORTANT</small>
+
+                <h2>重要資訊</h2>
+
+            </div>
+
+            <div class="notice">
+
+                <div class="notice-title">
+                    重要公告
+                </div>
+
+                <div class="notice-content">
+
+                    <h3>
+                        歡迎來到日本旅遊資訊網站
+                    </h3>
+
+                    <p>
+                        本網站整理日本東京、大阪外送茶資訊
+                        方便第一次配合的客人查詢資料。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Tokyo -->
+
+        <section class="area-section">
+
+            <div class="section-title">
+
+                <small>TOKYO</small>
+
+                <h2>東京外送茶</h2>
+
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>女生資訊</h3>
+
+                    <p>
+                        東京出勤女生資訊，
+                    </p>
+
+                    <a href="#">
+                        查看東京出勤女生 →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>酒店推薦</h3>
+
+                    <p>
+                        東京23區情侶酒店推薦，
+                        禁派酒店等資訊
+                    </p>
+
+                    <a href="#">
+                        查看酒店攻略 →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>東京女生評價</h3>
+
+                    <p>
+                        東京熱門女生的評價。
+                    </p>
+
+                    <a href="#">
+                        查看女生資訊 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Osaka -->
+
+        <section class="area-section">
+
+            <div class="section-title">
+
+                <small>OSAKA</small>
+
+                <h2>大阪女生出勤</h2>
+
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>出勤女生</h3>
+
+                    <p>
+                        查看大阪出勤女生，
+                    </p>
+
+                    <a href="#">
+                        查看酒店推薦攻略 →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>客評</h3>
+
+                    <p>
+                        大阪熱門女生客評
+                    </p>
+
+                    <a href="#">
+                        查看女生客評 →
+                    </a>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>注意事項</h3>
+
+                    <p>
+                        第一次來到日本體驗風俗行業應該注意的事情
+                        適合第一次體驗的寶寶們。
+                    </p>
+
+                    <a href="#">
+                        查看注意事項 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Address -->
+
+        <section class="address-section">
+
+            <div class="section-title">
+
+                <small>LOCATION</small>
+
+                <h2>地區資訊</h2>
+
+            </div>
+
+
+            <div class="address-box">
+
+                <div>
+
+                    <div class="address-label">
+                        TOKYO
+                    </div>
+
+                    <h3>東京地區</h3>
+
+                    <p>
+                        地址：東京都＿＿＿＿＿＿＿＿
+                    </p>
+
+                    <p>
+                        派送地區：新宿・澀谷・池袋・六本木・銀座等東京23區
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div class="address-label">
+                        OSAKA
+                    </div>
+
+                    <h3>大阪地區</h3>
+
+                    <p>
+                        地址：大阪府＿＿＿＿＿＿＿＿
+                    </p>
+
+                    <p>
+                        派送地區：難波・心齋橋・梅田等大阪市內
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div>
+
+            <strong>小櫻|東京大阪外送茶</strong>
+
+            <p>
+                東京・大阪外送茶
+            </p>
+
+        </div>
+
+        <div>
+            <p>
+                © 2026 Japan Travel Information
+            </p>
+        </div>
+
+    </footer>
 
 </body>
+
 </html>
