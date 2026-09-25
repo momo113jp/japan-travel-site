@@ -11,311 +11,565 @@
         content="東京大阪外送，整理東京、大阪外送茶、交通、住宿、景點、地區與暗黑旅行資訊。">
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+    * {
+        box-sizing: border-box;
+    }
 
-        body {
-            margin: 0;
-            font-family:
-                Arial,
-                "Noto Sans TC",
-                "Microsoft JhengHei",
-                sans-serif;
-            color: #333;
-            background: #f7f5f3;
-            line-height: 1.8;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        /* ===== Header ===== */
+    body {
+        margin: 0;
+        font-family:
+            Arial,
+            "Noto Sans TC",
+            "Microsoft JhengHei",
+            sans-serif;
+
+        color: #514147;
+        background: #fffafb;
+        line-height: 1.8;
+    }
+
+    /* =========================
+       Header
+    ========================= */
+
+    header {
+        height: 76px;
+        background: #ffffff;
+
+        border-bottom: 1px solid #f1dce2;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 0 6%;
+
+        position: relative;
+        z-index: 10;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 50%;
+
+        background: #d98b9b;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        font-weight: bold;
+
+        box-shadow: 0 4px 12px rgba(217, 139, 155, 0.25);
+    }
+
+    .logo-text strong {
+        display: block;
+
+        font-size: 15px;
+        letter-spacing: 1px;
+
+        color: #5a3e46;
+    }
+
+    .logo-text span {
+        display: block;
+
+        font-size: 8px;
+        color: #b58b96;
+
+        letter-spacing: 1.5px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+
+        gap: 28px;
+    }
+
+    nav a {
+        color: #654f56;
+
+        text-decoration: none;
+
+        font-size: 14px;
+
+        transition: 0.2s;
+    }
+
+    nav a:hover {
+        color: #c76f83;
+    }
+
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero {
+        background:
+            linear-gradient(
+                135deg,
+                #e9a8b6 0%,
+                #d98b9b 45%,
+                #c9788d 100%
+            );
+
+        color: white;
+
+        padding: 88px 8%;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: "🌸";
+
+        position: absolute;
+
+        right: 10%;
+        top: 25px;
+
+        font-size: 120px;
+
+        opacity: 0.12;
+    }
+
+    .hero::after {
+        content: "🌸";
+
+        position: absolute;
+
+        right: 24%;
+        bottom: -35px;
+
+        font-size: 100px;
+
+        opacity: 0.08;
+    }
+
+    .hero small {
+        color: #fff0f3;
+
+        letter-spacing: 4px;
+
+        font-size: 12px;
+
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+
+        margin: 18px 0 10px;
+
+        letter-spacing: 2px;
+
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero p {
+        color: #fff7f8;
+
+        margin: 0;
+
+        font-size: 16px;
+
+        position: relative;
+        z-index: 2;
+    }
+
+
+    /* =========================
+       Main
+    ========================= */
+
+    main {
+        max-width: 1100px;
+
+        margin: 60px auto;
+
+        padding: 0 25px;
+    }
+
+    .section-title {
+        margin-bottom: 35px;
+    }
+
+    .section-title small {
+        color: #c76f83;
+
+        letter-spacing: 3px;
+
+        font-size: 11px;
+    }
+
+    .section-title h2 {
+        margin: 8px 0;
+
+        font-size: 32px;
+
+        color: #594149;
+    }
+
+
+    /* =========================
+       Notice
+    ========================= */
+
+    .notice {
+        background: #ffffff;
+
+        border: 1px solid #f0d9df;
+
+        display: grid;
+
+        grid-template-columns: 180px 1fr;
+
+        margin-bottom: 70px;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+        box-shadow:
+            0 8px 30px rgba(190, 110, 130, 0.06);
+    }
+
+    .notice-title {
+        background:
+            linear-gradient(
+                135deg,
+                #f9e5e9,
+                #f5d9df
+            );
+
+        padding: 30px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        color: #a64f66;
+
+        font-size: 21px;
+
+        font-weight: bold;
+    }
+
+    .notice-content {
+        padding: 30px;
+    }
+
+    .notice-content h3 {
+        margin-top: 0;
+
+        color: #684852;
+
+        font-size: 18px;
+    }
+
+    .notice-content p {
+        color: #77656a;
+
+        font-size: 14px;
+    }
+
+
+    /* =========================
+       Cards
+    ========================= */
+
+    .cards {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 22px;
+    }
+
+    .card {
+        background: #ffffff;
+
+        border: 1px solid #f0dce1;
+
+        padding: 30px;
+
+        border-radius: 10px;
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+
+        position: relative;
+    }
+
+    .card::before {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        height: 4px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #e8a7b5,
+                #d47c91
+            );
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+
+        box-shadow:
+            0 12px 30px
+            rgba(190, 100, 125, 0.12);
+    }
+
+    .card h3 {
+        margin-top: 0;
+
+        font-size: 21px;
+
+        color: #9c4f65;
+    }
+
+    .card p {
+        color: #75666b;
+
+        font-size: 14px;
+    }
+
+    .card a {
+        display: inline-block;
+
+        margin-top: 8px;
+
+        color: #c26379;
+
+        text-decoration: none;
+
+        font-size: 13px;
+
+        font-weight: bold;
+    }
+
+    .card a:hover {
+        color: #9e4d64;
+    }
+
+
+    /* =========================
+       Area Sections
+    ========================= */
+
+    .area-section {
+        margin-top: 75px;
+    }
+
+
+    /* =========================
+       Address
+    ========================= */
+
+    .address-section {
+        margin-top: 80px;
+    }
+
+    .address-box {
+        background:
+            linear-gradient(
+                135deg,
+                #d98b9b,
+                #c8758b
+            );
+
+        color: white;
+
+        padding: 40px;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 40px;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 12px 35px
+            rgba(190, 100, 125, 0.18);
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+    .address-box::after {
+        content: "🌸";
+
+        position: absolute;
+
+        right: 25px;
+        bottom: -20px;
+
+        font-size: 110px;
+
+        opacity: 0.1;
+    }
+
+    .address-box h3 {
+        margin-top: 5px;
+
+        color: #ffffff;
+
+        font-size: 22px;
+    }
+
+    .address-box p {
+        color: #fff1f4;
+
+        font-size: 14px;
+    }
+
+    .address-label {
+        font-size: 11px;
+
+        color: #ffe2e8;
+
+        letter-spacing: 3px;
+    }
+
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+        background: #4a363d;
+
+        color: white;
+
+        padding: 38px 6%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+    }
+
+    footer strong {
+        font-size: 16px;
+
+        color: #fff;
+    }
+
+    footer p {
+        margin: 5px 0 0;
+
+        color: #d9c7cc;
+
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       Mobile
+    ========================= */
+
+    @media (max-width: 700px) {
 
         header {
-            height: 72px;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e0dc;
+            height: auto;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 18px 20px;
 
-            padding: 0 6%;
-        }
+            flex-direction: column;
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: #7d2639;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: white;
-            font-weight: bold;
-        }
-
-        .logo-text strong {
-            display: block;
-            font-size: 15px;
-            letter-spacing: 1px;
-        }
-
-        .logo-text span {
-            display: block;
-            font-size: 8px;
-            color: #999;
-            letter-spacing: 1px;
+            gap: 15px;
         }
 
         nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
         }
 
         nav a {
-            color: #333;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            color: #7d2639;
-        }
-
-        /* ===== Hero ===== */
-
-        .hero {
-            background:
-                linear-gradient(
-                    rgba(75, 30, 45, 0.92),
-                    rgba(65, 30, 42, 0.92)
-                );
-
-            color: white;
-            padding: 85px 8%;
-        }
-
-        .hero small {
-            color: #dca8b5;
-            letter-spacing: 4px;
-            font-size: 12px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            margin: 18px 0 10px;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            color: #eee;
-            margin: 0;
-            font-size: 16px;
-        }
-
-        /* ===== Main ===== */
-
-        main {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 25px;
-        }
-
-        .section-title {
-            margin-bottom: 35px;
-        }
-
-        .section-title small {
-            color: #8b3046;
-            letter-spacing: 3px;
-        }
-
-        .section-title h2 {
-            margin: 8px 0;
-            font-size: 32px;
-        }
-
-        /* ===== Cards ===== */
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid #e6e0dc;
-            padding: 28px;
-            transition: 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            font-size: 22px;
-            color: #542332;
-        }
-
-        .card p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .card a {
-            color: #8b3046;
-            text-decoration: none;
             font-size: 13px;
         }
 
-        /* ===== Notice ===== */
-
-        .notice {
-            background: white;
-            border: 1px solid #e5ded9;
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            margin-bottom: 70px;
+        .hero {
+            padding: 65px 25px;
         }
 
-        .notice-title {
-            background: #eee4df;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #632638;
-            font-size: 22px;
-            font-weight: bold;
+        .hero h1 {
+            font-size: 36px;
         }
 
-        .notice-content {
-            padding: 30px;
-        }
-
-        .notice-content h3 {
-            margin-top: 0;
-        }
-
-        /* ===== Area ===== */
-
-        .area-section {
-            margin-top: 70px;
-        }
-
-        /* ===== Address ===== */
-
-        .address-section {
-            margin-top: 70px;
-        }
-
-        .address-box {
-            background: #302a2d;
-            color: white;
-            padding: 35px;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .address-box h3 {
-            margin-top: 0;
-            color: #e8c5cd;
-        }
-
-        .address-box p {
-            color: #ddd;
+        .hero p {
             font-size: 14px;
         }
 
-        .address-label {
-            font-size: 12px;
-            color: #c58b98;
-            letter-spacing: 2px;
+        .cards {
+            grid-template-columns: 1fr;
         }
 
-        /* ===== Footer ===== */
+        .notice {
+            grid-template-columns: 1fr;
+        }
+
+        .notice-title {
+            padding: 20px;
+        }
+
+        .address-box {
+            grid-template-columns: 1fr;
+
+            padding: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+        }
 
         footer {
-            background: #211e20;
-            color: white;
+            flex-direction: column;
 
-            padding: 35px 6%;
+            align-items: flex-start;
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 15px;
         }
-
-        footer strong {
-            font-size: 16px;
-        }
-
-        footer p {
-            margin: 5px 0 0;
-            color: #aaa;
-            font-size: 12px;
-        }
-
-        /* ===== Mobile ===== */
-
-        @media (max-width: 700px) {
-
-            header {
-                height: auto;
-                padding: 18px 20px;
-
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero {
-                padding: 60px 25px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .notice {
-                grid-template-columns: 1fr;
-            }
-
-            .address-box {
-                grid-template-columns: 1fr;
-            }
-
-            footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
