@@ -984,34 +984,48 @@ footer p {
 
 
 </main>
- <!-- JApan -->
+<!-- Contact -->
 
-        <div class="city-card">
+<section class="contact-section">
 
-            <img
-                src="Tokyo Outcall 1.jpg"
-                alt="了解目前可以安排的女生？"
-            >
+    <div class="section-title">
 
-            <div class="city-content">
+        <small>
+            CONTACT
+        </small>
 
-                <small>
-                   聯絡方式
-                </small>
+        <h2>
+            聯絡方式
+        </h2>
+
+        <p>
+            如有網站內容或一般資訊問題，可以透過以下方式聯絡。
+        </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                TG
+            </div>
+
+            <div class="contact-content">
 
                 <h3>
-                  gleezy
+                    Telegram
                 </h3>
 
                 <p>
-                  告訴我們所在的地區與時間，店長會協助你了解相關的資訊
+                    Telegram 一般網站聯絡方式
                 </p>
 
-                <a
-                    class="city-link"
-                    href="tokyo.html"
-                >
-                    查看聯絡方式 →
+                <a href="#" class="contact-button">
+                    Telegram
                 </a>
 
             </div>
@@ -1019,6 +1033,133 @@ footer p {
         </div>
 
 
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                G
+            </div>
+
+            <div class="contact-content">
+
+                <h3>
+                    Gleezy
+                </h3>
+
+                <p>
+                    Gleezy 一般網站聯絡方式
+                </p>
+
+                <a href="#" class="contact-button">
+                    Gleezy
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                L
+            </div>
+
+            <div class="contact-content">
+
+                <h3>
+                    LINE
+                </h3>
+
+                <p>
+                    LINE 一般網站聯絡方式
+                </p>
+
+                <a href="#" class="contact-button">
+                    LINE
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+/* =====================
+   Contact
+===================== */
+
+.contact-section {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.contact-box {
+    background: #ffffff;
+    border: 1px solid #efd7de;
+    border-radius: 16px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    box-shadow: 0 10px 35px rgba(190, 100, 125, 0.08);
+}
+
+.contact-card {
+    background: #fffafb;
+    border: 1px solid #f1dce2;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(190, 100, 125, 0.12);
+}
+
+.contact-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e9a8b6, #c9788d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.contact-content h3 {
+    margin: 5px 0 8px;
+    color: #8f4d62;
+    font-size: 19px;
+}
+
+.contact-content p {
+    color: #77666c;
+    font-size: 13px;
+    min-height: 45px;
+}
+
+.contact-button {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 9px 22px;
+    border-radius: 25px;
+    background: #d98b9b;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.contact-button:hover {
+    background: #c8758b;
+}
 <!-- Footer -->
 
 <footer>
