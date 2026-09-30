@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>酒店資訊｜東京・大阪住宿指南</title>
+
+<meta name="description"
+      content="整理東京與大阪不同地區的酒店與住宿資訊。">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #fffafb;
+    color: #514147;
+    font-family:
+        Arial,
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        sans-serif;
+}
+
+
+/* 頂部 */
+
+header {
+    height: 72px;
+    background: #ffffff;
+    border-bottom: 1px solid #f0dce1;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+}
+
+.logo {
+    color: #9c4f65;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.back {
+    color: #9c4f65;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+/* Hero */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            #e9a8b6,
+            #d98b9b,
+            #c9788d
+        );
+
+    color: white;
+    padding: 70px 8%;
+}
+
+.hero small {
+    letter-spacing: 4px;
+    font-size: 11px;
+    color: #fff1f4;
+}
+
+.hero h1 {
+    margin: 15px 0 10px;
+    font-size: 44px;
+}
+
+.hero p {
+    margin: 0;
+    color: #fff3f5;
+    font-size: 14px;
+}
+
+
+/* 主要內容 */
+
+main {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 25px;
+}
+
+
+/* 標題 */
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    margin: 0 0 8px;
+    color: #513b42;
+    font-size: 28px;
+}
+
+.section-title p {
+    margin: 0;
+    color: #8f7b81;
+    font-size: 14px;
+}
+
+
+/* 東京大阪 */
+
+.city-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.city-card {
+    background: white;
+    border: 1px solid #efdde2;
+    border-radius: 10px;
+    padding: 35px;
+
+    text-decoration: none;
+    color: #514147;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 12px 30px rgba(190,100,125,.12);
+}
+
+.city-icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.city-card h3 {
+    margin: 0 0 10px;
+    color: #8f4058;
+    font-size: 24px;
+}
+
+.city-card p {
+    margin: 0 0 20px;
+    color: #75656a;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.city-link {
+    color: #c26379;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* 地圖 */
+
+.map-section {
+    margin-top: 60px;
+}
+
+.map-title {
+    margin-bottom: 20px;
+}
+
+.map-title h2 {
+    margin: 0 0 8px;
+    color: #513b42;
+    font-size: 25px;
+}
+
+.map-title p {
+    margin: 0;
+    color: #8f7b81;
+    font-size: 13px;
+}
+
+.map-box {
+    background: white;
+    border: 1px solid #efdde2;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.map-box img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 80px;
+    background: #4a363d;
+    color: white;
+    padding: 35px;
+    text-align: center;
+}
+
+footer p {
+    color: #dbcbd0;
+    font-size: 12px;
+}
+
+
+/* 手機版 */
+
+@media (max-width: 700px) {
+
+    header {
+        height: auto;
+        padding: 18px 20px;
+    }
+
+    .hero {
+        padding: 55px 25px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    main {
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    .city-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .city-card {
+        padding: 28px;
+    }
+
+    .city-icon {
+        font-size: 36px;
+    }
+
+    .map-section {
+        margin-top: 45px;
+    }
+
+    .map-title h2 {
+        font-size: 22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        小櫻｜酒店資訊
+    </div>
+
+    <a
+        class="back"
+        href="../index.html">
+        ← 返回首頁
+    </a>
+
+</header>
+
+
+<section class="hero">
+
+    <small>
+        JAPAN HOTEL GUIDE
+    </small>
+
+    <h1>
+        酒店資訊
+    </h1>
+
+    <p>
+        東京・大阪住宿位置與酒店資訊
+    </p>
+
+</section>
+
+
+<main>
+
+
+<section>
+
+    <div class="section-title">
+
+        <h2>
+            東京・大阪酒店
+        </h2>
+
+        <p>
+            選擇城市，查看禁派的酒店資訊
+        </p>
+
+    </div>
+
+
+    <div class="city-grid">
+
+
+        <!-- 東京 -->
+
+        <a
+            class="city-card"
+            href="tokyo-hotel.html">
+
+            <div class="city-icon">
+                🗼
+            </div>
+
+            <h3>
+                東京禁派酒店
+            </h3>
+
+            <p>
+                查看東京禁派酒店資訊。
+            </p>
+
+            <div class="city-link">
+                查看東京酒店 →
+            </div>
+
+        </a>
+
+
+        <!-- 大阪 -->
+
+        <a
+            class="city-card"
+            href="osaka-hotel.html">
+
+            <div class="city-icon">
+                🏯
+            </div>
+
+            <h3>
+                大阪禁派酒店
+            </h3>
+
+            <p>
+                查看大阪禁派酒店資訊。
+            </p>
+
+            <div class="city-link">
+                查看大阪酒店 →
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- 東京地圖 -->
+
+<section class="map-section">
+
+    <div class="map-title">
+
+        <h2>
+            東京地區地圖
+        </h2>
+
+        <p>
+            東京派送區域位置參考
+        </p>
+
+    </div>
+
+
+    <div class="map-box">
+
+        <img
+            src="../images/tokyo-map.jpg"
+            alt="東京地區地圖">
+
+    </div>
+
+</section>
+
+
+<!-- 大阪地圖 -->
+
+<section class="map-section">
+
+    <div class="map-title">
+
+        <h2>
+            大阪地區地圖
+        </h2>
+
+        <p>
+            大阪派送區域位置參考
+        </p>
+
+    </div>
+
+
+    <div class="map-box">
+
+        <img
+            src="../images/osaka-map.jpg"
+        alt="大阪地區地圖">
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <strong>
+        小櫻｜東京大阪暗黑旅行
+    </strong>
+
+    <p>
+        JAPAN TRAVEL & LIFE
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
