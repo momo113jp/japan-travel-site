@@ -1,0 +1,3099 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>大阪禁止派送酒店資訊｜大阪住宿位置與酒店查詢</title>
+
+<meta name="description"
+content="大阪酒店資訊整理，包含難波、日本橋、新世界、心齋橋、天下茶屋、天王寺等地區酒店，提供酒店名稱、所在地區與 Google 地圖查詢入口。">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        Arial,
+        sans-serif;
+
+    background:#fffafb;
+    color:#514147;
+}
+
+/* ===== Header ===== */
+
+header{
+    height:76px;
+    background:#ffffff;
+    border-bottom:1px solid #f3dce2;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+    color:#c76f83;
+    text-decoration:none;
+}
+
+.back{
+    text-decoration:none;
+    color:#8b6871;
+    font-size:14px;
+}
+
+.back:hover{
+    color:#c76f83;
+}
+
+/* ===== Hero ===== */
+
+.hero{
+    padding:70px 20px 55px;
+    text-align:center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff1f5 0%,
+            #fffafb 100%
+        );
+}
+
+.hero h1{
+    margin:0 0 15px;
+
+    font-size:42px;
+    letter-spacing:2px;
+
+    color:#c76f83;
+}
+
+.hero p{
+    margin:0;
+
+    color:#8b7279;
+    font-size:15px;
+}
+
+/* ===== Container ===== */
+
+.container{
+    width:90%;
+    max-width:1100px;
+
+    margin:50px auto 80px;
+}
+
+/* ===== Notice ===== */
+
+.notice{
+    margin-bottom:30px;
+
+    padding:28px 30px;
+
+    border-radius:18px;
+
+    background:#fff4f6;
+
+    border:1px solid #f1dce2;
+
+    color:#756269;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    box-shadow:0 5px 20px rgba(180,120,135,0.05);
+}
+
+.notice h3{
+    margin-top:0;
+    margin-bottom:18px;
+
+    color:#c76f83;
+
+    font-size:21px;
+}
+
+.notice p{
+    margin:0 0 15px;
+}
+
+.notice p:last-child{
+    margin-bottom:0;
+}
+
+.notice strong{
+    color:#c76f83;
+}
+
+/* ===== Search ===== */
+
+.search-box{
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:100%;
+
+    padding:15px 18px;
+
+    border:1px solid #e9cbd3;
+    border-radius:12px;
+
+    background:#ffffff;
+
+    font-size:15px;
+
+    outline:none;
+
+    color:#514147;
+}
+
+.search-box input:focus{
+    border-color:#d98b9b;
+
+    box-shadow:
+        0 0 0 3px rgba(217,139,155,0.12);
+}
+
+.search-hint{
+    margin-top:9px;
+
+    font-size:13px;
+    color:#a4878e;
+}
+
+/* ===== Hotel List ===== */
+
+.hotel-list{
+    display:flex;
+    flex-direction:column;
+
+    gap:12px;
+}
+
+/* ===== Hotel Row ===== */
+
+.hotel-row{
+    display:grid;
+
+    grid-template-columns:
+        55px
+        minmax(220px,2fr)
+        120px
+        220px;
+
+    align-items:center;
+
+    background:#ffffff;
+
+    border:1px solid #f0dfe3;
+
+    border-radius:14px;
+
+    padding:17px 20px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.hotel-row:hover{
+    transform:translateY(-2px);
+
+    border-color:#e5b4c0;
+
+    box-shadow:
+        0 8px 22px rgba(190,120,140,0.10);
+}
+
+/* ===== Number ===== */
+
+.number{
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:#fff0f4;
+
+    color:#c76f83;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* ===== Hotel Name ===== */
+
+.hotel-name{
+    font-size:16px;
+    font-weight:bold;
+
+    color:#514147;
+}
+
+.hotel-name small{
+    display:block;
+
+    margin-top:5px;
+
+    font-size:12px;
+    font-weight:normal;
+
+    color:#a18a90;
+}
+
+/* ===== Area ===== */
+
+.area{
+    color:#8b6871;
+    font-size:14px;
+}
+
+/* ===== Google Button ===== */
+
+.google-btn{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    background:#fff0f4;
+
+    color:#c76f83;
+
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:bold;
+
+    text-align:center;
+
+    border:1px solid #f0d2da;
+
+    transition:all .2s ease;
+}
+
+.google-btn:hover{
+    background:#c76f83;
+    color:#ffffff;
+}
+
+/* ===== Footer ===== */
+
+footer{
+    padding:35px 20px;
+
+    text-align:center;
+
+    background:#ffffff;
+
+    border-top:1px solid #f2dfe4;
+
+    color:#a1848b;
+
+    font-size:13px;
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:700px){
+
+    header{
+        height:auto;
+
+        padding:17px 20px;
+
+        gap:10px;
+
+        flex-direction:column;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .hero{
+        padding:55px 20px 45px;
+    }
+
+    .hero h1{
+        font-size:31px;
+        letter-spacing:1px;
+    }
+
+    .hero p{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .container{
+        width:92%;
+
+        margin:35px auto 60px;
+    }
+
+    .notice{
+        padding:22px 20px;
+        font-size:14px;
+    }
+
+    .notice h3{
+        font-size:19px;
+    }
+
+    .hotel-row{
+        grid-template-columns:45px 1fr;
+
+        gap:12px;
+
+        padding:16px;
+    }
+
+    .hotel-name{
+        font-size:15px;
+        line-height:1.5;
+    }
+
+    .area{
+        grid-column:2;
+
+        font-size:13px;
+    }
+
+    .google-btn{
+        grid-column:2;
+
+        width:100%;
+
+        padding:11px 15px;
+    }
+
+    .number{
+        grid-row:1 / span 3;
+    }
+
+}
+
+/* ===== Small Mobile ===== */
+
+@media(max-width:400px){
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .hotel-name{
+        font-size:14px;
+    }
+
+    .hotel-row{
+        padding:14px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ===== Header ===== -->
+
+<header>
+
+    <a href="../index.html" class="logo">
+        🌸 小櫻｜大阪禁止派送酒店資訊
+    </a>
+
+    <a href="../index.html" class="back">
+        ← 返回首頁
+    </a>
+
+</header>
+
+
+<!-- ===== Hero ===== -->
+
+<section class="hero">
+
+    <h1>大阪禁止派送酒店資訊</h1>
+
+    <p>
+        大阪住宿位置・酒店查詢・Google 地圖
+    </p>
+
+</section>
+
+
+<!-- ===== Main ===== -->
+
+<main class="container">
+
+
+    <!-- ===== 訪客規定說明 ===== -->
+
+    <div class="notice">
+
+        <h3>大阪酒店入住與訪客規定</h3>
+
+        <p>
+            大阪不同酒店對訪客及外來人員進入住宿區域的規定並不完全相同。
+            部分酒店可能限制非登記住客進入客房，也有酒店可能要求訪客先在前台登記。
+        </p>
+
+        <p>
+            不同酒店的房型、公共設施與入住方式也有所不同，
+            大阪不送榻榻米，沒有獨立浴室，沒有前台，民宿都不送
+        </p>
+
+        <p>
+            因此，在預訂酒店之前，除了確認價格、位置與交通之外，
+            也建議先查看酒店官方網站公布的訪客政策與入住條款。
+        </p>
+
+        <p>
+            <strong>📌 重要提醒：</strong>
+            酒店規定可能隨時間調整。
+            本頁主要提供住宿資訊整理，
+            實際入住及訪客政策請以酒店當日公布的規定為準。
+        </p>
+
+    </div>
+
+
+    <!-- ===== Search ===== -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="hotelSearch"
+            placeholder="🔎 搜尋酒店名稱或地區，例如：難波、日本橋、心齋橋..."
+            onkeyup="searchHotel()"
+        >
+
+        <div class="search-hint">
+            輸入酒店名稱或地區即可快速篩選
+        </div>
+
+    </div>
+
+
+    <!-- ===== Hotel List ===== -->
+
+    <div class="hotel-list" id="hotelList">
+
+
+<!-- 01 -->
+<div class="hotel-row">
+
+    <div class="number">01</div>
+
+    <div class="hotel-name">
+        大阪南海瑞士酒店
+        <small>スイスホテル南海大阪</small>
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=スイスホテル南海大阪"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 02 -->
+<div class="hotel-row">
+
+    <div class="number">02</div>
+
+    <div class="hotel-name">
+        reikyo garden hotel
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=reikyo%20garden%20hotel%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 03 -->
+<div class="hotel-row">
+
+    <div class="number">03</div>
+
+    <div class="hotel-name">
+        大阪EBISU飯店
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=大阪EBISU飯店"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 04 -->
+<div class="hotel-row">
+
+    <div class="number">04</div>
+
+    <div class="hotel-name">
+        the peak numba
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=the%20peak%20numba%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 05 -->
+<div class="hotel-row">
+
+    <div class="number">05</div>
+
+    <div class="hotel-name">
+        HOTEL AARON 通天東
+    </div>
+
+    <div class="area">
+        新世界
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=HOTEL%20AARON%20通天東%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 06 -->
+<div class="hotel-row">
+
+    <div class="number">06</div>
+
+    <div class="hotel-name">
+        THE PAX Hostel/Cafe/Records
+    </div>
+
+    <div class="area">
+        新世界
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=THE%20PAX%20Hostel%20Cafe%20Records%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 07 -->
+<div class="hotel-row">
+
+    <div class="number">07</div>
+
+    <div class="hotel-name">
+        Hotel Mikado
+        <small>ホテルみかど</small>
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Mikado%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 08 -->
+<div class="hotel-row">
+
+    <div class="number">08</div>
+
+    <div class="hotel-name">
+        ESLEAD HOTEL Osaka Nipponbashi
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=ESLEAD%20HOTEL%20Osaka%20Nipponbashi"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 09 -->
+<div class="hotel-row">
+
+    <div class="number">09</div>
+
+    <div class="hotel-name">
+        HOTEL LEGALIE Osaka Shinsekai
+    </div>
+
+    <div class="area">
+        新世界
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=HOTEL%20LEGALIE%20Osaka%20Shinsekai"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 10 -->
+<div class="hotel-row">
+
+    <div class="number">10</div>
+
+    <div class="hotel-name">
+        HOTEL LEGALIE Osaka Nipponbashi South
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=HOTEL%20LEGALIE%20Osaka%20Nipponbashi%20South"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 11 -->
+<div class="hotel-row">
+
+    <div class="number">11</div>
+
+    <div class="hotel-name">
+        HOTEL LEGALIE Osaka Shinsaibashi North
+    </div>
+
+    <div class="area">
+        心齋橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=HOTEL%20LEGALIE%20Osaka%20Shinsaibashi%20North"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 12 -->
+<div class="hotel-row">
+
+    <div class="number">12</div>
+
+    <div class="hotel-name">
+        Hotel LEGALIE Shinsaibashi East
+    </div>
+
+    <div class="area">
+        心齋橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20LEGALIE%20Shinsaibashi%20East"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 13 -->
+<div class="hotel-row">
+
+    <div class="number">13</div>
+
+    <div class="hotel-name">
+        嵐Arashi 日本橋2号店
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=嵐Arashi%20日本橋2号店%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 14 -->
+<div class="hotel-row">
+
+    <div class="number">14</div>
+
+    <div class="hotel-name">
+        川HOUSE黒門
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=川HOUSE黒門%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 15 -->
+<div class="hotel-row">
+
+    <div class="number">15</div>
+
+    <div class="hotel-name">
+        JA Hotel Bentencho
+    </div>
+
+    <div class="area">
+        弁天町
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=JA%20Hotel%20Bentencho%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 16 -->
+<div class="hotel-row">
+
+    <div class="number">16</div>
+
+    <div class="hotel-name">
+        Park Central Sakura Hotel
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Park%20Central%20Sakura%20Hotel%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 17 -->
+<div class="hotel-row">
+
+    <div class="number">17</div>
+
+    <div class="hotel-name">
+        Minn 難波日本橋
+    </div>
+
+    <div class="area">
+        難波・日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Minn%20難波日本橋%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 18 -->
+<div class="hotel-row">
+
+    <div class="number">18</div>
+
+    <div class="hotel-name">
+        日本环球影城公园大酒店
+    </div>
+
+    <div class="area">
+        此花區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=The%20Park%20Front%20Hotel%20at%20Universal%20Studios%20Japan"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 19 -->
+<div class="hotel-row">
+
+    <div class="number">19</div>
+
+    <div class="hotel-name">
+        大阪難波馨樂庭公寓酒店
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Citadines%20Namba%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 20 -->
+<div class="hotel-row">
+
+    <div class="number">20</div>
+
+    <div class="hotel-name">
+        Hotel Story Namba by Tabist
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Story%20Namba%20by%20Tabist"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 21 -->
+<div class="hotel-row">
+
+    <div class="number">21</div>
+
+    <div class="hotel-name">
+        Hopetree Tennoji
+    </div>
+
+    <div class="area">
+        天王寺區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hopetree%20Tennoji%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 22 -->
+<div class="hotel-row">
+
+    <div class="number">22</div>
+
+    <div class="hotel-name">
+        Hotel The Day Osaka
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20The%20Day%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 23 -->
+<div class="hotel-row">
+
+    <div class="number">23</div>
+
+    <div class="hotel-name">
+        Oecan 心齋橋
+    </div>
+
+    <div class="area">
+        心齋橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Oecan%20心齋橋%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 24 -->
+<div class="hotel-row">
+
+    <div class="number">24</div>
+
+    <div class="hotel-name">
+        Hotel.Links Dobutsuen-Mae
+    </div>
+
+    <div class="area">
+        動物園前
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel.Links%20Dobutsuen-Mae%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 25 -->
+<div class="hotel-row">
+
+    <div class="number">25</div>
+
+    <div class="hotel-name">
+        BON Condominium Umeda
+    </div>
+
+    <div class="area">
+        梅田
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=BON%20Condominium%20Umeda%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 26 -->
+<div class="hotel-row">
+
+    <div class="number">26</div>
+
+    <div class="hotel-name">
+        BON Condo Namba Nipponbashi
+    </div>
+
+    <div class="area">
+        難波・日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=BON%20Condo%20Namba%20Nipponbashi"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 27 -->
+<div class="hotel-row">
+
+    <div class="number">27</div>
+
+    <div class="hotel-name">
+        BON Condominium Namba Ebisu
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=BON%20Condominium%20Namba%20Ebisu"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 28 -->
+<div class="hotel-row">
+
+    <div class="number">28</div>
+
+    <div class="hotel-name">
+        Apartment Hotel 11 Namba2
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Apartment%20Hotel%2011%20Namba2%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 29 -->
+<div class="hotel-row">
+
+    <div class="number">29</div>
+
+    <div class="hotel-name">
+        Arashi Hotel Nambaminami
+    </div>
+
+    <div class="area">
+        難波南
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Arashi%20Hotel%20Nambaminami%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 30 -->
+<div class="hotel-row">
+
+    <div class="number">30</div>
+
+    <div class="hotel-name">
+        Royal ロイヤル
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Royal%20ロイヤル%20Osaka%20hotel"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 31 -->
+<div class="hotel-row">
+
+    <div class="number">31</div>
+
+    <div class="hotel-name">
+        近鐵FOURZ飯店 大阪難波
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=近鉄FOURZ%20大阪難波"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 32 -->
+<div class="hotel-row">
+
+    <div class="number">32</div>
+
+    <div class="hotel-name">
+        桜川 Hotel Namba
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=桜川%20Hotel%20Namba%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 33 -->
+<div class="hotel-row">
+
+    <div class="number">33</div>
+
+    <div class="hotel-name">
+        b&天下茶屋
+    </div>
+
+    <div class="area">
+        天下茶屋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=b%26天下茶屋%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 34 -->
+<div class="hotel-row">
+
+    <div class="number">34</div>
+
+    <div class="hotel-name">
+        Apartment Hotel 11 Dotonbori 10
+    </div>
+
+    <div class="area">
+        道頓堀
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Apartment%20Hotel%2011%20Dotonbori%2010%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 35 -->
+<div class="hotel-row">
+
+    <div class="number">35</div>
+
+    <div class="hotel-name">
+        嵐 Arashi 日本橋1号店
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=嵐%20Arashi%20日本橋1号店%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 36 -->
+<div class="hotel-row">
+
+    <div class="number">36</div>
+
+    <div class="hotel-name">
+        Hotel Shin-Imamiya
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Shin-Imamiya%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 37 -->
+<div class="hotel-row">
+
+    <div class="number">37</div>
+
+    <div class="hotel-name">
+        Hotel Sunplaza
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Sunplaza%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 38 -->
+<div class="hotel-row">
+
+    <div class="number">38</div>
+
+    <div class="hotel-name">
+        白樺の宿 恵美須
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=白樺の宿%20恵美須%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 39 -->
+<div class="hotel-row">
+
+    <div class="number">39</div>
+
+    <div class="hotel-name">
+        JA Hotel Midoribashi
+    </div>
+
+    <div class="area">
+        東成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=JA%20Hotel%20Midoribashi%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 40 -->
+<div class="hotel-row">
+
+    <div class="number">40</div>
+
+    <div class="hotel-name">
+        Hotel Nihonbashi Little Chapel Christmas
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Nihonbashi%20Little%20Chapel%20Christmas%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 41 -->
+<div class="hotel-row">
+
+    <div class="number">41</div>
+
+    <div class="hotel-name">
+        Apartment Hotel 11 Namba Minami 5
+    </div>
+
+    <div class="area">
+        難波南
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Apartment%20Hotel%2011%20Namba%20Minami%205%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 42 -->
+<div class="hotel-row">
+
+    <div class="number">42</div>
+
+    <div class="hotel-name">
+        Apartment Hotel 11 Namba Minami 2
+    </div>
+
+    <div class="area">
+        難波南
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Apartment%20Hotel%2011%20Namba%20Minami%202%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 43 -->
+<div class="hotel-row">
+
+    <div class="number">43</div>
+
+    <div class="hotel-name">
+        Hotel Lucky
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Lucky%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 44 -->
+<div class="hotel-row">
+
+    <div class="number">44</div>
+
+    <div class="hotel-name">
+        EXE 東心齋橋
+        <small>道頓堀クリスタルホテル3</small>
+    </div>
+
+    <div class="area">
+        心齋橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=道頓堀クリスタルホテル3%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 45 -->
+<div class="hotel-row">
+
+    <div class="number">45</div>
+
+    <div class="hotel-name">
+        CHECK inn 大阪新世界
+    </div>
+
+    <div class="area">
+        新世界
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=CHECK%20inn%20大阪新世界"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 46 -->
+<div class="hotel-row">
+
+    <div class="number">46</div>
+
+    <div class="hotel-name">
+        Hotel U's Annex
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20U's%20Annex%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 47 -->
+<div class="hotel-row">
+
+    <div class="number">47</div>
+
+    <div class="hotel-name">
+        Kawahouse日本橋
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Kawahouse%20日本橋%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 48 -->
+<div class="hotel-row">
+
+    <div class="number">48</div>
+
+    <div class="hotel-name">
+        R Hotel Namba South
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=R%20Hotel%20Namba%20South%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 49 -->
+<div class="hotel-row">
+
+    <div class="number">49</div>
+
+    <div class="hotel-name">
+        GATE STAY hotel Osaka NAMBA
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=GATE%20STAY%20hotel%20Osaka%20NAMBA"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 50 -->
+<div class="hotel-row">
+
+    <div class="number">50</div>
+
+    <div class="hotel-name">
+        白樺 七重
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=白樺%20七重%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 51 -->
+<div class="hotel-row">
+
+    <div class="number">51</div>
+
+    <div class="hotel-name">
+        福助商務旅館
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=福助商務旅館%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 52 -->
+<div class="hotel-row">
+
+    <div class="number">52</div>
+
+    <div class="hotel-name">
+        JS暁宅・凱
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=JS暁宅%20凱%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 53 -->
+<div class="hotel-row">
+
+    <div class="number">53</div>
+
+    <div class="hotel-name">
+        遠東悅樂大阪難波南酒店
+    </div>
+
+    <div class="area">
+        難波南
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Far%20East%20Village%20Hotel%20Osaka%20Namba%20South"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 54 -->
+<div class="hotel-row">
+
+    <div class="number">54</div>
+
+    <div class="hotel-name">
+        艾思利德酒店難波東
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Eslead%20Hotel%20Namba%20East%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 55 -->
+<div class="hotel-row">
+
+    <div class="number">55</div>
+
+    <div class="hotel-name">
+        S-Presso Namba Parks Street
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=S-Presso%20Namba%20Parks%20Street%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 56 -->
+<div class="hotel-row">
+
+    <div class="number">56</div>
+
+    <div class="hotel-name">
+        unito hotel residence NAMBA Motomachi
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=unito%20hotel%20residence%20NAMBA%20Motomachi"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 57 -->
+<div class="hotel-row">
+
+    <div class="number">57</div>
+
+    <div class="hotel-name">
+        アクロカプセルホテル なんば道頓堀
+    </div>
+
+    <div class="area">
+        難波・道頓堀
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=アクロカプセルホテル%20なんば道頓堀%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 58 -->
+<div class="hotel-row">
+
+    <div class="number">58</div>
+
+    <div class="hotel-name">
+        Ruka Hotel Tennoji
+    </div>
+
+    <div class="area">
+        天王寺區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Ruka%20Hotel%20Tennoji%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 59 -->
+<div class="hotel-row">
+
+    <div class="number">59</div>
+
+    <div class="hotel-name">
+        大阪Academia飯店
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Osaka%20Academia%20Hotel"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 60 -->
+<div class="hotel-row">
+
+    <div class="number">60</div>
+
+    <div class="hotel-name">
+        HOTEL ffosaka
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=HOTEL%20ffosaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 61 -->
+<div class="hotel-row">
+
+    <div class="number">61</div>
+
+    <div class="hotel-name">
+        WONZ HOTEL
+    </div>
+
+    <div class="area">
+        大阪
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=WONZ%20HOTEL%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 62 -->
+<div class="hotel-row">
+
+    <div class="number">62</div>
+
+    <div class="hotel-name">
+        Crystal Court Namba
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Crystal%20Court%20Namba%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 63 -->
+<div class="hotel-row">
+
+    <div class="number">63</div>
+
+    <div class="hotel-name">
+        Hotel Chuo Bridge
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Chuo%20Bridge%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 64 -->
+<div class="hotel-row">
+
+    <div class="number">64</div>
+
+    <div class="hotel-name">
+        中央綠洲酒店
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=中央綠洲酒店%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 65 -->
+<div class="hotel-row">
+
+    <div class="number">65</div>
+
+    <div class="hotel-name">
+        JAホテル難波
+    </div>
+
+    <div class="area">
+        難波
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=JAホテル難波%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 66 -->
+<div class="hotel-row">
+
+    <div class="number">66</div>
+
+    <div class="hotel-name">
+        PLAZA IN 都島
+    </div>
+
+    <div class="area">
+        都島區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=PLAZA%20IN%20都島%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 67 -->
+<div class="hotel-row">
+
+    <div class="number">67</div>
+
+    <div class="hotel-name">
+        セレーノ山王
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=セレーノ山王%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 68 -->
+<div class="hotel-row">
+
+    <div class="number">68</div>
+
+    <div class="hotel-name">
+        川HOUSE花園町
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=川HOUSE花園町%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 69 -->
+<div class="hotel-row">
+
+    <div class="number">69</div>
+
+    <div class="hotel-name">
+        エスリードホテル大阪鶴橋
+    </div>
+
+    <div class="area">
+        鶴橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=エスリードホテル大阪鶴橋"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 70 -->
+<div class="hotel-row">
+
+    <div class="number">70</div>
+
+    <div class="hotel-name">
+        アズガーデン日本橋
+    </div>
+
+    <div class="area">
+        日本橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=アズガーデン日本橋%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 71 -->
+<div class="hotel-row">
+
+    <div class="number">71</div>
+
+    <div class="hotel-name">
+        Apartment Hotel 11 Shinimamiya 1
+    </div>
+
+    <div class="area">
+        新今宮
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Apartment%20Hotel%2011%20Shinimamiya%201%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 72 -->
+<div class="hotel-row">
+
+    <div class="number">72</div>
+
+    <div class="hotel-name">
+        Hotel Story@Namba by Tabist
+        <small>4 Chome-6-7 Nipponbashi</small>
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Story%20Namba%20by%20Tabist%204-6-7%20Nipponbashi%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 73 -->
+<div class="hotel-row">
+
+    <div class="number">73</div>
+
+    <div class="hotel-name">
+        TORACO konohana
+        <small>3 Chome-2-20 Shimaya</small>
+    </div>
+
+    <div class="area">
+        此花區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=TORACO%20konohana%203-2-20%20Shimaya%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 74 -->
+<div class="hotel-row">
+
+    <div class="number">74</div>
+
+    <div class="hotel-name">
+        Eslead Hotel Namba East
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Eslead%20Hotel%20Namba%20East%204-1-11%20Nipponbashi%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 75 -->
+<div class="hotel-row">
+
+    <div class="number">75</div>
+
+    <div class="hotel-name">
+        KONJAKUSO Osaka Bentencho "HIKARIYUYA"
+    </div>
+
+    <div class="area">
+        東淀川區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=KONJAKUSO%20Osaka%20Bentencho%20HIKARIYUYA"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 76 -->
+<div class="hotel-row">
+
+    <div class="number">76</div>
+
+    <div class="hotel-name">
+        今昔荘 大阪 弁天町 - 光湯屋 -
+    </div>
+
+    <div class="area">
+        港區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=今昔荘%20大阪%20弁天町%20光湯屋"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 77 -->
+<div class="hotel-row">
+
+    <div class="number">77</div>
+
+    <div class="hotel-name">
+        ESLEAD HOTEL Namba Daikokucho
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=ESLEAD%20HOTEL%20Namba%20Daikokucho"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 78 -->
+<div class="hotel-row">
+
+    <div class="number">78</div>
+
+    <div class="hotel-name">
+        HOTEL NISSIN
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=HOTEL%20NISSIN%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 79 -->
+<div class="hotel-row">
+
+    <div class="number">79</div>
+
+    <div class="hotel-name">
+        Primavera Namba
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Primavera%20Namba%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 80 -->
+<div class="hotel-row">
+
+    <div class="number">80</div>
+
+    <div class="hotel-name">
+        WELLSTAY難波
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=WELLSTAY%20難波%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 81 -->
+<div class="hotel-row">
+
+    <div class="number">81</div>
+
+    <div class="hotel-name">
+        Osaka Teikoku Hotel
+        <small>大阪帝國酒店</small>
+    </div>
+
+    <div class="area">
+        中央區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Osaka%20Teikoku%20Hotel"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 82 -->
+<div class="hotel-row">
+
+    <div class="number">82</div>
+
+    <div class="hotel-name">
+        KONJAKUSO Osaka Shinsaibashi "TARUKAISEN"
+    </div>
+
+    <div class="area">
+        中央區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=KONJAKUSO%20Osaka%20Shinsaibashi%20TARUKAISEN"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 83 -->
+<div class="hotel-row">
+
+    <div class="number">83</div>
+
+    <div class="hotel-name">
+        Apartment Hotel 11 Namba Minami Shinimamiya
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Apartment%20Hotel%2011%20Namba%20Minami%20Shinimamiya%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 84 -->
+<div class="hotel-row">
+
+    <div class="number">84</div>
+
+    <div class="hotel-name">
+        AI ANNEX
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=AI%20ANNEX%20Tengachaya%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 85 -->
+<div class="hotel-row">
+
+    <div class="number">85</div>
+
+    <div class="hotel-name">
+        TENGACHAYA INN
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=TENGACHAYA%20INN%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 86 -->
+<div class="hotel-row">
+
+    <div class="number">86</div>
+
+    <div class="hotel-name">
+        Hotel Aiwa
+        <small>ホテル愛和</small>
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Aiwa%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 87 -->
+<div class="hotel-row">
+
+    <div class="number">87</div>
+
+    <div class="hotel-name">
+        Suzuran Tengachaya
+        <small>鈴蘭 天下茶屋</small>
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Suzuran%20Tengachaya%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 88 -->
+<div class="hotel-row">
+
+    <div class="number">88</div>
+
+    <div class="hotel-name">
+        ザワンダーアットステイ -天下茶屋-
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=ザワンダーアットステイ%20天下茶屋%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 89 -->
+<div class="hotel-row">
+
+    <div class="number">89</div>
+
+    <div class="hotel-name">
+        JA Hotel Namba South
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=JA%20Hotel%20Namba%20South%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 90 -->
+<div class="hotel-row">
+
+    <div class="number">90</div>
+
+    <div class="hotel-name">
+        CEN OSAKA NAMBA Meander Osaka
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=CEN%20OSAKA%20NAMBA%20Meander%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 91 -->
+<div class="hotel-row">
+
+    <div class="number">91</div>
+
+    <div class="hotel-name">
+        Hotel Wan Osaka ebisu
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Wan%20Osaka%20ebisu"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 92 -->
+<div class="hotel-row">
+
+    <div class="number">92</div>
+
+    <div class="hotel-name">
+        K HOTEL NAMBA
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=K%20HOTEL%20NAMBA%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 93 -->
+<div class="hotel-row">
+
+    <div class="number">93</div>
+
+    <div class="hotel-name">
+        LUCKY NAMBA
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=LUCKY%20NAMBA%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 94 -->
+<div class="hotel-row">
+
+    <div class="number">94</div>
+
+    <div class="hotel-name">
+        Sakura Sands Hotel Shinsaibashi
+    </div>
+
+    <div class="area">
+        中央區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Sakura%20Sands%20Hotel%20Shinsaibashi"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 95 -->
+<div class="hotel-row">
+
+    <div class="number">95</div>
+
+    <div class="hotel-name">
+        Arashi Hotel Tengachaya
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Arashi%20Hotel%20Tengachaya%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 96 -->
+<div class="hotel-row">
+
+    <div class="number">96</div>
+
+    <div class="hotel-name">
+        カプセルホテル朝日プラザ心斎橋
+    </div>
+
+    <div class="area">
+        中央區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=カプセルホテル朝日プラザ心斎橋"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 97 -->
+<div class="hotel-row">
+
+    <div class="number">97</div>
+
+    <div class="hotel-name">
+        AMEMURA GARDEN HOTEL
+    </div>
+
+    <div class="area">
+        心齋橋
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=AMEMURA%20GARDEN%20HOTEL%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 98 -->
+<div class="hotel-row">
+
+    <div class="number">98</div>
+
+    <div class="hotel-name">
+        DOYANEN HOTELS YAMATO
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=DOYANEN%20HOTELS%20YAMATO%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 99 -->
+<div class="hotel-row">
+
+    <div class="number">99</div>
+
+    <div class="hotel-name">
+        WELLSTAY OSAKA新今宮駅前
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=WELLSTAY%20OSAKA%20新今宮駅前"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 100 -->
+<div class="hotel-row">
+
+    <div class="number">100</div>
+
+    <div class="hotel-name">
+        USP HOTEL SHINIMAMIYA
+    </div>
+
+    <div class="area">
+        浪速區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=USP%20HOTEL%20SHINIMAMIYA%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 101 -->
+<div class="hotel-row">
+
+    <div class="number">101</div>
+
+    <div class="hotel-name">
+        RUKA GUEST HOUSE
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=RUKA%20GUEST%20HOUSE%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 102 -->
+<div class="hotel-row">
+
+    <div class="number">102</div>
+
+    <div class="hotel-name">
+        Hotel Angel Heart
+    </div>
+
+    <div class="area">
+        天王寺區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Hotel%20Angel%20Heart%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 103 -->
+<div class="hotel-row">
+
+    <div class="number">103</div>
+
+    <div class="hotel-name">
+        Little Chapel Coconuts
+    </div>
+
+    <div class="area">
+        天王寺區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Little%20Chapel%20Coconuts%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 104 -->
+<div class="hotel-row">
+
+    <div class="number">104</div>
+
+    <div class="hotel-name">
+        Queens Park CK
+    </div>
+
+    <div class="area">
+        西成區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=Queens%20Park%20CK%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+<!-- 105 -->
+<div class="hotel-row">
+
+    <div class="number">105</div>
+
+    <div class="hotel-name">
+        JSTAR HOTEL Shinsaibashi
+    </div>
+
+    <div class="area">
+        中央區
+    </div>
+
+    <a
+        class="google-btn"
+        target="_blank"
+        href="https://www.google.com/maps/search/?api=1&query=JSTAR%20HOTEL%20Shinsaibashi%20Osaka"
+    >
+        查看 Google →
+    </a>
+
+</div>
+
+
+    </div>
+
+</main>
+
+
+<!-- ===== Footer ===== -->
+
+<footer>
+
+    © 2026 小櫻｜東京大阪旅遊生活
+
+</footer>
+
+
+<script>
+
+/* ===== 酒店搜尋 ===== */
+
+function searchHotel(){
+
+    const input =
+        document
+        .getElementById("hotelSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const hotels =
+        document
+        .querySelectorAll(".hotel-row");
+
+    hotels.forEach(function(hotel){
+
+        const text =
+            hotel.innerText.toLowerCase();
+
+        if(text.includes(input)){
+
+            hotel.style.display = "grid";
+
+        }else{
+
+            hotel.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
