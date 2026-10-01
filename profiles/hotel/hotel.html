@@ -1,275 +1,375 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
-
+<html lang="zh-TW">
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<title>東京酒店資訊｜訪客規定與住宿注意事項</title>
 
-<title>酒店資訊｜東京・大阪住宿指南</title>
-
-<meta name="description"
-      content="整理東京與大阪不同地區的酒店與住宿資訊。">
+<meta name="description" content="整理東京不同區域的酒店資訊、訪客規定與住宿注意事項，提供酒店名稱、所在地區及 Google 酒店資訊查詢。">
 
 <style>
 
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    margin: 0;
-    background: #fffafb;
-    color: #514147;
+body{
     font-family:
-        Arial,
-        "Noto Sans TC",
-        "Microsoft JhengHei",
-        sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans TC",
+    "Microsoft JhengHei",
+    sans-serif;
+
+    background:#fffafb;
+    color:#514147;
+    line-height:1.8;
 }
 
 
-/* 頂部 */
+/* =========================
+   Header
+========================= */
 
-header {
-    height: 72px;
-    background: #ffffff;
-    border-bottom: 1px solid #f0dce1;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 6%;
+header{
+    background:linear-gradient(135deg,#d98b9b,#c9788d);
+    color:white;
+    padding:30px 20px;
 }
 
-.logo {
-    color: #9c4f65;
-    font-weight: bold;
-    font-size: 16px;
+.header-inner{
+    max-width:1100px;
+    margin:auto;
 }
 
-.back {
-    color: #9c4f65;
-    text-decoration: none;
-    font-size: 13px;
+.logo{
+    font-size:11px;
+    letter-spacing:4px;
+    opacity:.9;
+    margin-bottom:12px;
 }
 
-
-/* Hero */
-
-.hero {
-    background:
-        linear-gradient(
-            135deg,
-            #e9a8b6,
-            #d98b9b,
-            #c9788d
-        );
-
-    color: white;
-    padding: 70px 8%;
+header h1{
+    font-size:34px;
+    margin-bottom:6px;
 }
 
-.hero small {
-    letter-spacing: 4px;
-    font-size: 11px;
-    color: #fff1f4;
+header p{
+    font-size:14px;
+    opacity:.92;
 }
 
-.hero h1 {
-    margin: 15px 0 10px;
-    font-size: 44px;
-}
-
-.hero p {
-    margin: 0;
-    color: #fff3f5;
-    font-size: 14px;
+.back{
+    display:inline-block;
+    margin-top:18px;
+    color:white;
+    text-decoration:none;
+    font-size:13px;
 }
 
 
-/* 主要內容 */
+/* =========================
+   Main
+========================= */
 
-main {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 0 25px;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:45px 20px 60px;
 }
 
 
-/* 標題 */
+/* =========================
+   Intro
+========================= */
 
-.section-title {
-    margin-bottom: 30px;
+.intro{
+    margin-bottom:42px;
 }
 
-.section-title h2 {
-    margin: 0 0 8px;
-    color: #513b42;
-    font-size: 28px;
+.intro h2{
+    font-size:26px;
+    color:#8e4659;
+    margin-bottom:12px;
 }
 
-.section-title p {
-    margin: 0;
-    color: #8f7b81;
-    font-size: 14px;
+.intro p{
+    font-size:14px;
+    color:#707070;
+    margin-bottom:10px;
 }
 
-
-/* 東京大阪 */
-
-.city-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.city-card {
-    background: white;
-    border: 1px solid #efdde2;
-    border-radius: 10px;
-    padding: 35px;
-
-    text-decoration: none;
-    color: #514147;
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-}
-
-.city-card:hover {
-    transform: translateY(-5px);
-    box-shadow:
-        0 12px 30px rgba(190,100,125,.12);
-}
-
-.city-icon {
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.city-card h3 {
-    margin: 0 0 10px;
-    color: #8f4058;
-    font-size: 24px;
-}
-
-.city-card p {
-    margin: 0 0 20px;
-    color: #75656a;
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.city-link {
-    color: #c26379;
-    font-size: 13px;
-    font-weight: bold;
+.notice-top{
+    background:#fff1f4;
+    border-left:4px solid #d98b9b;
+    border-radius:8px;
+    padding:16px 18px;
+    margin-top:20px;
+    font-size:13px;
+    color:#6f5a60;
 }
 
 
-/* 地圖 */
+/* =========================
+   Hotel section
+========================= */
 
-.map-section {
-    margin-top: 60px;
+.hotel-section{
+    margin-top:40px;
 }
 
-.map-title {
-    margin-bottom: 20px;
+.hotel-section h2{
+    font-size:26px;
+    color:#8e4659;
+    margin-bottom:6px;
 }
 
-.map-title h2 {
-    margin: 0 0 8px;
-    color: #513b42;
-    font-size: 25px;
-}
-
-.map-title p {
-    margin: 0;
-    color: #8f7b81;
-    font-size: 13px;
-}
-
-.map-box {
-    background: white;
-    border: 1px solid #efdde2;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.map-box img {
-    width: 100%;
-    display: block;
-    height: auto;
+.hotel-description{
+    color:#777;
+    font-size:13px;
+    margin-bottom:20px;
 }
 
 
-/* Footer */
+/* =========================
+   Search
+========================= */
 
-footer {
-    margin-top: 80px;
-    background: #4a363d;
-    color: white;
-    padding: 35px;
-    text-align: center;
+.search-box{
+    margin-bottom:20px;
 }
 
-footer p {
-    color: #dbcbd0;
-    font-size: 12px;
+.search-box input{
+    width:100%;
+    padding:13px 16px;
+
+    border:1px solid #e8cbd2;
+    border-radius:8px;
+
+    background:white;
+
+    font-size:14px;
+    color:#514147;
+
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#d98b9b;
+    box-shadow:0 0 0 3px rgba(217,139,155,.1);
 }
 
 
-/* 手機版 */
+/* =========================
+   Table
+========================= */
 
-@media (max-width: 700px) {
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
 
-    header {
-        height: auto;
-        padding: 18px 20px;
+    background:white;
+
+    border:1px solid #efd5dc;
+    border-radius:12px;
+
+    box-shadow:0 5px 18px rgba(150,80,100,.04);
+}
+
+.hotel-table{
+    width:100%;
+    border-collapse:collapse;
+
+    min-width:720px;
+}
+
+.hotel-table th{
+    background:#f9e7eb;
+
+    color:#8e4659;
+
+    font-size:13px;
+    font-weight:600;
+
+    padding:14px 15px;
+
+    text-align:left;
+
+    border-bottom:1px solid #efd5dc;
+}
+
+.hotel-table td{
+    padding:15px;
+
+    font-size:13px;
+
+    color:#666;
+
+    border-bottom:1px solid #f3e1e5;
+
+    vertical-align:middle;
+}
+
+.hotel-table tr:last-child td{
+    border-bottom:none;
+}
+
+.hotel-table tr:hover td{
+    background:#fff9fa;
+}
+
+
+/* Hotel name */
+
+.hotel-name{
+    color:#a95068;
+
+    font-size:15px;
+
+    font-weight:600;
+}
+
+.hotel-area{
+    display:inline-block;
+
+    margin-top:4px;
+
+    font-size:11px;
+
+    color:#a66b7a;
+
+    background:#fff0f3;
+
+    padding:2px 8px;
+
+    border-radius:20px;
+}
+
+
+/* Policy */
+
+.policy{
+    color:#777;
+    font-size:12px;
+}
+
+
+/* Google button */
+
+.google-btn{
+    display:inline-block;
+
+    padding:7px 12px;
+
+    border:1px solid #dfb5c0;
+
+    border-radius:7px;
+
+    background:#fff8fa;
+
+    color:#a95068;
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    white-space:nowrap;
+
+    transition:.2s;
+}
+
+.google-btn:hover{
+    background:#f9e5ea;
+}
+
+
+/* =========================
+   Bottom reminder
+========================= */
+
+.reminder{
+    margin-top:40px;
+
+    background:#fff1f4;
+
+    border-radius:12px;
+
+    padding:22px;
+}
+
+.reminder h2{
+    color:#a64d64;
+
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.reminder p{
+    color:#707070;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+footer{
+    padding:30px 20px;
+
+    text-align:center;
+
+    background:#f8e7eb;
+
+    color:#9b6875;
+
+    font-size:12px;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media(max-width:700px){
+
+    header{
+        padding:26px 20px;
     }
 
-    .hero {
-        padding: 55px 25px;
+    header h1{
+        font-size:28px;
     }
 
-    .hero h1 {
-        font-size: 35px;
+    .container{
+        padding:35px 15px 50px;
     }
 
-    main {
-        margin: 40px auto;
-        padding: 0 20px;
+    .intro h2{
+        font-size:22px;
     }
 
-    .section-title h2 {
-        font-size: 25px;
+    .hotel-section h2{
+        font-size:22px;
     }
 
-    .city-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+    /*
+       手機版不強迫整張表縮小，
+       可以左右滑動，避免酒店名稱被截斷
+    */
+
+    .table-wrapper{
+        overflow-x:auto;
     }
 
-    .city-card {
-        padding: 28px;
-    }
-
-    .city-icon {
-        font-size: 36px;
-    }
-
-    .map-section {
-        margin-top: 45px;
-    }
-
-    .map-title h2 {
-        font-size: 22px;
+    .hotel-table{
+        min-width:720px;
     }
 
 }
@@ -282,166 +382,402 @@ footer p {
 <body>
 
 
+<!-- =========================
+     Header
+========================= -->
+
 <header>
 
-    <div class="logo">
-        小櫻｜酒店資訊
-    </div>
+<div class="header-inner">
 
-    <a
-        class="back"
-        href="../index.html">
-        ← 返回首頁
-    </a>
+<div class="logo">
+JAPAN HOTEL GUIDE
+</div>
+
+<h1>東京酒店資訊</h1>
+
+<p>東京酒店、訪客規定與住宿注意事項</p>
+
+<a class="back" href="hotel.html">
+← 返回酒店資訊
+</a>
+
+</div>
 
 </header>
 
 
-<section class="hero">
 
-    <small>
-        JAPAN HOTEL GUIDE
-    </small>
-
-    <h1>
-        酒店資訊
-    </h1>
-
-    <p>
-        東京・大阪住宿位置與酒店資訊
-    </p>
-
-</section>
+<main class="container">
 
 
-<main>
+<!-- =========================
+     Introduction
+========================= -->
+
+<section class="intro">
+
+<h2>為什麼有些酒店會限制訪客？</h2>
+
+<p>
+東京不同酒店對訪客及外來人員進入住宿區域的規定並不完全相同。
+部分酒店可能限制非登記住客進入客房，也有酒店可能要求訪客先在前台登記。
+</p>
+
+<p>
+另外，不同酒店的房型與住宿設施也有所不同，
+例如部分房型可能沒有獨立浴室，
+傳統日式住宿也可能有不同於一般商務酒店的入住規定。
+</p>
+
+<p>
+因此，在預訂酒店之前，除了確認價格、位置與交通之外，
+也建議先查看酒店官方網站公布的訪客政策與入住條款。
+</p>
 
 
-<section>
+<div class="notice-top">
 
-    <div class="section-title">
+<strong>📌 重要提醒：</strong>
 
-        <h2>
-            東京・大阪酒店
-        </h2>
+酒店規定可能隨時間調整。
+本頁主要提供住宿資訊整理，
+實際訪客政策請以酒店當日公布的規定為準。
 
-        <p>
-            選擇城市，查看禁派的酒店資訊
-        </p>
-
-    </div>
-
-
-    <div class="city-grid">
-
-
-        <!-- 東京 -->
-
-        <a
-            class="city-card"
-            href="tokyo-hotel.html">
-
-            <div class="city-icon">
-                🗼
-            </div>
-
-            <h3>
-                東京禁派酒店
-            </h3>
-
-            <p>
-                查看東京禁派酒店資訊。
-            </p>
-
-            <div class="city-link">
-                查看東京酒店 →
-            </div>
-
-        </a>
-
-
-        <!-- 大阪 -->
-
-        <a
-            class="city-card"
-            href="osaka-hotel.html">
-
-            <div class="city-icon">
-                🏯
-            </div>
-
-            <h3>
-                大阪禁派酒店
-            </h3>
-
-            <p>
-                查看大阪禁派酒店資訊。
-            </p>
-
-            <div class="city-link">
-                查看大阪酒店 →
-            </div>
-
-        </a>
-
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- 東京地圖 -->
 
-<section class="map-section">
+<!-- =========================
+     Hotel List
+========================= -->
 
-    <div class="map-title">
+<section class="hotel-section">
 
-        <h2>
-            東京派送地區地圖
-        </h2>
+<h2>東京酒店列表</h2>
 
-        <p>
-            東京派送區域位置參考
-        </p>
-
-    </div>
+<p class="hotel-description">
+以下按照東京不同區域整理酒店資訊。
+可以使用搜尋框快速尋找酒店名稱或地區。
+</p>
 
 
-    <div class="map-box">
+<!-- 搜尋 -->
 
-        <img
-            src="../images/tokyo-map.jpg"
-            alt="東京派送地區地圖">
+<div class="search-box">
 
-    </div>
+<input
+type="text"
+id="hotelSearch"
+placeholder="🔍 搜尋酒店名稱或地區，例如：新宿、澀谷、池袋..."
+onkeyup="searchHotel()">
+
+</div>
+
+
+
+<!-- 表格 -->
+
+<div class="table-wrapper">
+
+<table class="hotel-table">
+
+<thead>
+
+<tr>
+
+<th>
+酒店名稱
+</th>
+
+<th>
+地區
+</th>
+
+<th>
+訪客資訊
+</th>
+
+<th>
+Google
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="hotelTable">
+
+
+<!-- =========================
+     酒店 1
+========================= -->
+
+<tr>
+
+<td>
+
+<div class="hotel-name">
+東京新宿酒店
+</div>
+
+</td>
+
+<td>
+
+<span class="hotel-area">
+新宿
+</span>
+
+</td>
+
+<td>
+
+<div class="policy">
+建議入住前確認酒店最新訪客規定
+</div>
+
+</td>
+
+<td>
+
+<a
+class="google-btn"
+href="https://www.google.com/maps/search/?api=1&query=Tokyo+Shinjuku+Hotel"
+target="_blank"
+rel="noopener noreferrer">
+
+查看 Google →
+
+</a>
+
+</td>
+
+</tr>
+
+
+
+<!-- =========================
+     酒店 2
+========================= -->
+
+<tr>
+
+<td>
+
+<div class="hotel-name">
+東京澀谷酒店
+</div>
+
+</td>
+
+<td>
+
+<span class="hotel-area">
+澀谷
+</span>
+
+</td>
+
+<td>
+
+<div class="policy">
+建議入住前確認酒店最新訪客規定
+</div>
+
+</td>
+
+<td>
+
+<a
+class="google-btn"
+href="https://www.google.com/maps/search/?api=1&query=Tokyo+Shibuya+Hotel"
+target="_blank"
+rel="noopener noreferrer">
+
+查看 Google →
+
+</a>
+
+</td>
+
+</tr>
+
+
+
+<!-- =========================
+     酒店 3
+========================= -->
+
+<tr>
+
+<td>
+
+<div class="hotel-name">
+東京池袋酒店
+</div>
+
+</td>
+
+<td>
+
+<span class="hotel-area">
+池袋
+</span>
+
+</td>
+
+<td>
+
+<div class="policy">
+建議入住前確認酒店最新訪客規定
+</div>
+
+</td>
+
+<td>
+
+<a
+class="google-btn"
+href="https://www.google.com/maps/search/?api=1&query=Tokyo+Ikebukuro+Hotel"
+target="_blank"
+rel="noopener noreferrer">
+
+查看 Google →
+
+</a>
+
+</td>
+
+</tr>
+
+
+
+<!-- =========================
+     酒店 4
+========================= -->
+
+<tr>
+
+<td>
+
+<div class="hotel-name">
+東京上野酒店
+</div>
+
+</td>
+
+<td>
+
+<span class="hotel-area">
+上野
+</span>
+
+</td>
+
+<td>
+
+<div class="policy">
+建議入住前確認酒店最新訪客規定
+</div>
+
+</td>
+
+<td>
+
+<a
+class="google-btn"
+href="https://www.google.com/maps/search/?api=1&query=Tokyo+Ueno+Hotel"
+target="_blank"
+rel="noopener noreferrer">
+
+查看 Google →
+
+</a>
+
+</td>
+
+</tr>
+
+
+
+<!-- =========================
+     酒店 5
+========================= -->
+
+<tr>
+
+<td>
+
+<div class="hotel-name">
+東京淺草酒店
+</div>
+
+</td>
+
+<td>
+
+<span class="hotel-area">
+淺草
+</span>
+
+</td>
+
+<td>
+
+<div class="policy">
+建議入住前確認酒店最新訪客規定
+</div>
+
+</td>
+
+<td>
+
+<a
+class="google-btn"
+href="https://www.google.com/maps/search/?api=1&query=Tokyo+Asakusa+Hotel"
+target="_blank"
+rel="noopener noreferrer">
+
+查看 Google →
+
+</a>
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
 
 </section>
 
 
-<!-- 大阪地圖 -->
 
-<section class="map-section">
+<!-- =========================
+     Reminder
+========================= -->
 
-    <div class="map-title">
+<section class="reminder">
 
-        <h2>
-            大阪派送地區地圖
-        </h2>
+<h2>📌 入住前提醒</h2>
 
-        <p>
-            大阪派送區域位置參考
-        </p>
+<p>
+如果酒店網站沒有清楚列出訪客規定，
+建議直接向酒店確認最新政策。
+</p>
 
-    </div>
-
-
-    <div class="map-box">
-
-        <img
-            src="../images/osaka-map.jpg"
-        alt="大阪派送地區地圖">
-
-    </div>
+<p style="margin-top:8px;">
+酒店的入住規定可能因時間、房型及住宿政策而有所不同，
+實際情況請以酒店官方資訊為準。
+</p>
 
 </section>
 
@@ -449,19 +785,58 @@ footer p {
 </main>
 
 
+
 <footer>
 
-    <strong>
-        小櫻｜東京大阪暗黑旅行
-    </strong>
+小櫻｜東京大阪旅遊生活<br>
 
-    <p>
-        JAPAN TRAVEL & LIFE
-    </p>
+JAPAN TRAVEL & LIFE
 
 </footer>
 
 
-</body>
 
+<script>
+
+/* =========================
+   酒店搜尋功能
+========================= */
+
+function searchHotel(){
+
+    let input =
+        document
+        .getElementById("hotelSearch")
+        .value
+        .toLowerCase();
+
+    let rows =
+        document
+        .querySelectorAll("#hotelTable tr");
+
+
+    rows.forEach(function(row){
+
+        let text =
+            row.innerText
+            .toLowerCase();
+
+        if(text.includes(input)){
+
+            row.style.display = "";
+
+        }else{
+
+            row.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
 </html>
