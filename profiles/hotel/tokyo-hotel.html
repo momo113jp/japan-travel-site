@@ -1,833 +1,1172 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>東京酒店資訊｜訪客規定與住宿注意事項</title>
+<title>東京酒店資訊｜東京住宿位置與酒店查詢</title>
 
-<meta name="description" content="整理東京不同區域的酒店資訊、訪客規定與住宿注意事項，提供酒店名稱、所在地區及 Google 酒店資訊查詢。">
+<meta name="description"
+content="東京酒店資訊整理，包含新橋、淺草、龜戶、品川、豐洲、入谷等地區酒店，提供酒店名稱、所在地區與 Google 地圖查詢入口。">
 
 <style>
 
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 body{
+    margin:0;
     font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Noto Sans TC",
-    "Microsoft JhengHei",
-    sans-serif;
+        -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        Arial,
+        sans-serif;
 
     background:#fffafb;
     color:#514147;
-    line-height:1.8;
 }
 
-
-/* =========================
-   Header
-========================= */
+/* ===== Header ===== */
 
 header{
-    background:linear-gradient(135deg,#d98b9b,#c9788d);
-    color:white;
-    padding:30px 20px;
-}
+    height:76px;
+    background:#ffffff;
+    border-bottom:1px solid #f3dce2;
 
-.header-inner{
-    max-width:1100px;
-    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 7%;
+
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .logo{
-    font-size:11px;
-    letter-spacing:4px;
-    opacity:.9;
-    margin-bottom:12px;
-}
-
-header h1{
-    font-size:34px;
-    margin-bottom:6px;
-}
-
-header p{
-    font-size:14px;
-    opacity:.92;
+    font-size:20px;
+    font-weight:bold;
+    color:#c76f83;
+    text-decoration:none;
 }
 
 .back{
-    display:inline-block;
-    margin-top:18px;
-    color:white;
     text-decoration:none;
-    font-size:13px;
+    color:#8b6871;
+    font-size:14px;
 }
 
+.back:hover{
+    color:#c76f83;
+}
 
-/* =========================
-   Main
-========================= */
+/* ===== Hero ===== */
+
+.hero{
+    padding:70px 20px 55px;
+    text-align:center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff1f5 0%,
+            #fffafb 100%
+        );
+}
+
+.hero h1{
+    margin:0 0 15px;
+
+    font-size:42px;
+    letter-spacing:2px;
+
+    color:#c76f83;
+}
+
+.hero p{
+    margin:0;
+
+    color:#8b7279;
+    font-size:15px;
+}
+
+/* ===== Container ===== */
 
 .container{
+    width:90%;
     max-width:1100px;
-    margin:auto;
-    padding:45px 20px 60px;
+
+    margin:50px auto 80px;
 }
 
-
-/* =========================
-   Intro
-========================= */
+/* ===== Intro ===== */
 
 .intro{
-    margin-bottom:42px;
+    background:#ffffff;
+
+    border:1px solid #f2dfe4;
+    border-radius:18px;
+
+    padding:28px 30px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 5px 20px rgba(180,120,135,0.06);
 }
 
 .intro h2{
-    font-size:26px;
-    color:#8e4659;
-    margin-bottom:12px;
+    margin-top:0;
+
+    color:#c76f83;
+    font-size:22px;
 }
 
 .intro p{
+    line-height:1.9;
+    color:#705e64;
+    margin-bottom:0;
+}
+
+/* ===== Notice ===== */
+
+.notice{
+    margin-bottom:30px;
+
+    padding:28px 30px;
+
+    border-radius:18px;
+
+    background:#fff4f6;
+
+    border:1px solid #f1dce2;
+
+    color:#756269;
+
     font-size:14px;
-    color:#707070;
-    margin-bottom:10px;
+
+    line-height:1.9;
+
+    box-shadow:0 5px 20px rgba(180,120,135,0.05);
 }
 
-.notice-top{
-    background:#fff1f4;
-    border-left:4px solid #d98b9b;
-    border-radius:8px;
-    padding:16px 18px;
-    margin-top:20px;
-    font-size:13px;
-    color:#6f5a60;
+.notice h3{
+    margin-top:0;
+    margin-bottom:18px;
+
+    color:#c76f83;
+
+    font-size:21px;
 }
 
-
-/* =========================
-   Hotel section
-========================= */
-
-.hotel-section{
-    margin-top:40px;
+.notice p{
+    margin:0 0 15px;
 }
 
-.hotel-section h2{
-    font-size:26px;
-    color:#8e4659;
-    margin-bottom:6px;
+.notice p:last-child{
+    margin-bottom:0;
 }
 
-.hotel-description{
-    color:#777;
-    font-size:13px;
-    margin-bottom:20px;
+.notice strong{
+    color:#c76f83;
 }
 
-
-/* =========================
-   Search
-========================= */
+/* ===== Search ===== */
 
 .search-box{
-    margin-bottom:20px;
+    margin-bottom:25px;
 }
 
 .search-box input{
     width:100%;
-    padding:13px 16px;
 
-    border:1px solid #e8cbd2;
-    border-radius:8px;
+    padding:15px 18px;
 
-    background:white;
+    border:1px solid #e9cbd3;
+    border-radius:12px;
 
-    font-size:14px;
-    color:#514147;
+    background:#ffffff;
+
+    font-size:15px;
 
     outline:none;
+
+    color:#514147;
 }
 
 .search-box input:focus{
     border-color:#d98b9b;
-    box-shadow:0 0 0 3px rgba(217,139,155,.1);
+
+    box-shadow:
+        0 0 0 3px rgba(217,139,155,0.12);
 }
 
-
-/* =========================
-   Table
-========================= */
-
-.table-wrapper{
-    width:100%;
-    overflow-x:auto;
-
-    background:white;
-
-    border:1px solid #efd5dc;
-    border-radius:12px;
-
-    box-shadow:0 5px 18px rgba(150,80,100,.04);
-}
-
-.hotel-table{
-    width:100%;
-    border-collapse:collapse;
-
-    min-width:720px;
-}
-
-.hotel-table th{
-    background:#f9e7eb;
-
-    color:#8e4659;
+.search-hint{
+    margin-top:9px;
 
     font-size:13px;
-    font-weight:600;
-
-    padding:14px 15px;
-
-    text-align:left;
-
-    border-bottom:1px solid #efd5dc;
+    color:#a4878e;
 }
 
-.hotel-table td{
-    padding:15px;
+/* ===== Hotel List ===== */
+
+.hotel-list{
+    display:flex;
+    flex-direction:column;
+
+    gap:12px;
+}
+
+/* ===== Hotel Row ===== */
+
+.hotel-row{
+    display:grid;
+
+    grid-template-columns:
+        55px
+        minmax(220px,2fr)
+        120px
+        220px;
+
+    align-items:center;
+
+    background:#ffffff;
+
+    border:1px solid #f0dfe3;
+
+    border-radius:14px;
+
+    padding:17px 20px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.hotel-row:hover{
+    transform:translateY(-2px);
+
+    border-color:#e5b4c0;
+
+    box-shadow:
+        0 8px 22px rgba(190,120,140,0.10);
+}
+
+/* ===== Number ===== */
+
+.number{
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    background:#fff0f4;
+
+    color:#c76f83;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
     font-size:13px;
-
-    color:#666;
-
-    border-bottom:1px solid #f3e1e5;
-
-    vertical-align:middle;
+    font-weight:bold;
 }
 
-.hotel-table tr:last-child td{
-    border-bottom:none;
-}
-
-.hotel-table tr:hover td{
-    background:#fff9fa;
-}
-
-
-/* Hotel name */
+/* ===== Hotel Name ===== */
 
 .hotel-name{
-    color:#a95068;
+    font-size:16px;
+    font-weight:bold;
 
-    font-size:15px;
-
-    font-weight:600;
+    color:#514147;
 }
 
-.hotel-area{
-    display:inline-block;
+.hotel-name small{
+    display:block;
 
-    margin-top:4px;
+    margin-top:5px;
 
-    font-size:11px;
-
-    color:#a66b7a;
-
-    background:#fff0f3;
-
-    padding:2px 8px;
-
-    border-radius:20px;
-}
-
-
-/* Policy */
-
-.policy{
-    color:#777;
     font-size:12px;
+    font-weight:normal;
+
+    color:#a18a90;
 }
 
+/* ===== Area ===== */
 
-/* Google button */
+.area{
+    color:#8b6871;
+    font-size:14px;
+}
+
+/* ===== Google Button ===== */
 
 .google-btn{
     display:inline-block;
 
-    padding:7px 12px;
+    padding:10px 18px;
 
-    border:1px solid #dfb5c0;
+    border-radius:20px;
 
-    border-radius:7px;
+    background:#fff0f4;
 
-    background:#fff8fa;
-
-    color:#a95068;
+    color:#c76f83;
 
     text-decoration:none;
 
-    font-size:12px;
+    font-size:13px;
+    font-weight:bold;
 
-    white-space:nowrap;
+    text-align:center;
 
-    transition:.2s;
+    border:1px solid #f0d2da;
+
+    transition:all .2s ease;
 }
 
 .google-btn:hover{
-    background:#f9e5ea;
+    background:#c76f83;
+    color:#ffffff;
 }
 
+/* ===== Footer ===== */
 
-/* =========================
-   Bottom reminder
-========================= */
+footer{
+    padding:35px 20px;
 
-.reminder{
-    margin-top:40px;
+    text-align:center;
 
-    background:#fff1f4;
+    background:#ffffff;
 
-    border-radius:12px;
+    border-top:1px solid #f2dfe4;
 
-    padding:22px;
-}
-
-.reminder h2{
-    color:#a64d64;
-
-    font-size:20px;
-
-    margin-bottom:8px;
-}
-
-.reminder p{
-    color:#707070;
+    color:#a1848b;
 
     font-size:13px;
 }
 
-
-/* =========================
-   Footer
-========================= */
-
-footer{
-    padding:30px 20px;
-
-    text-align:center;
-
-    background:#f8e7eb;
-
-    color:#9b6875;
-
-    font-size:12px;
-}
-
-
-/* =========================
-   Mobile
-========================= */
+/* ===== Mobile ===== */
 
 @media(max-width:700px){
 
     header{
-        padding:26px 20px;
+        height:auto;
+
+        padding:17px 20px;
+
+        gap:10px;
+
+        flex-direction:column;
     }
 
-    header h1{
-        font-size:28px;
+    .logo{
+        font-size:18px;
+    }
+
+    .hero{
+        padding:55px 20px 45px;
+    }
+
+    .hero h1{
+        font-size:31px;
+        letter-spacing:1px;
+    }
+
+    .hero p{
+        font-size:14px;
+        line-height:1.7;
     }
 
     .container{
-        padding:35px 15px 50px;
+        width:92%;
+
+        margin:35px auto 60px;
+    }
+
+    .intro{
+        padding:22px 20px;
     }
 
     .intro h2{
-        font-size:22px;
+        font-size:20px;
     }
 
-    .hotel-section h2{
-        font-size:22px;
+    .intro p{
+        font-size:14px;
     }
 
-    /*
-       手機版不強迫整張表縮小，
-       可以左右滑動，避免酒店名稱被截斷
-    */
+    .notice{
+        padding:22px 20px;
 
-    .table-wrapper{
-        overflow-x:auto;
+        font-size:14px;
     }
 
-    .hotel-table{
-        min-width:720px;
+    .notice h3{
+        font-size:19px;
+    }
+
+    .hotel-row{
+        grid-template-columns:45px 1fr;
+
+        gap:12px;
+
+        padding:16px;
+    }
+
+    .hotel-name{
+        font-size:15px;
+        line-height:1.5;
+    }
+
+    .area{
+        grid-column:2;
+
+        font-size:13px;
+    }
+
+    .google-btn{
+        grid-column:2;
+
+        width:100%;
+
+        padding:11px 15px;
+    }
+
+    .number{
+        grid-row:1 / span 3;
+    }
+
+}
+
+/* ===== Small Mobile ===== */
+
+@media(max-width:400px){
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .hotel-name{
+        font-size:14px;
+    }
+
+    .hotel-row{
+        padding:14px;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================
-     Header
-========================= -->
+<!-- ===== Header ===== -->
 
 <header>
 
-<div class="header-inner">
+    <a href="../index.html" class="logo">
+        🌸 小櫻｜東京酒店資訊
+    </a>
 
-<div class="logo">
-JAPAN HOTEL GUIDE
-</div>
-
-<h1>東京酒店資訊</h1>
-
-<p>東京酒店、訪客規定與住宿注意事項</p>
-
-<a class="back" href="hotel.html">
-← 返回酒店資訊
-</a>
-
-</div>
+    <a href="../index.html" class="back">
+        ← 返回首頁
+    </a>
 
 </header>
 
 
+<!-- ===== Hero ===== -->
+
+<section class="hero">
+
+    <h1>東京酒店資訊</h1>
+
+    <p>
+        東京住宿位置・酒店查詢・Google 地圖
+    </p>
+
+</section>
+
+
+<!-- ===== Main ===== -->
 
 <main class="container">
 
 
-<!-- =========================
-     Introduction
-========================= -->
+    <!-- ===== Intro ===== -->
 
-<section class="intro">
+    <section class="intro">
 
-<h2>為什麼有些酒店會限制訪客？</h2>
+        <h2>東京酒店列表</h2>
 
-<p>
-東京不同酒店對訪客及外來人員進入住宿區域的規定並不完全相同。
-部分酒店可能限制非登記住客進入客房，也有酒店可能要求訪客先在前台登記。
-</p>
+        <p>
+            這裡整理東京不同地區的住宿選擇，
+            包含新橋、淺草、龜戶、入谷、品川、豐洲等區域。
+            可以直接使用下方搜尋框查找酒店名稱，
+            也可以點擊「查看 Google」查看最新的位置與相關資訊。
+        </p>
 
-<p>
-另外，不同酒店的房型與住宿設施也有所不同，
-例如部分房型可能沒有獨立浴室，
-傳統日式住宿也可能有不同於一般商務酒店的入住規定。
-</p>
+    </section>
 
-<p>
-因此，在預訂酒店之前，除了確認價格、位置與交通之外，
-也建議先查看酒店官方網站公布的訪客政策與入住條款。
-</p>
 
+    <!-- ===== 訪客規定說明 ===== -->
 
-<div class="notice-top">
+    <div class="notice">
 
-<strong>📌 重要提醒：</strong>
+        <h3>為什麼有些酒店會限制訪客？</h3>
 
-酒店規定可能隨時間調整。
-本頁主要提供住宿資訊整理，
-實際訪客政策請以酒店當日公布的規定為準。
+        <p>
+            東京不同酒店對訪客及外來人員進入住宿區域的規定並不完全相同。
+            部分酒店可能限制非登記住客進入客房，也有酒店可能要求訪客先在前台登記。
+        </p>
 
-</div>
+        <p>
+            另外，不同酒店的房型與住宿設施也有所不同，
+            例如部分房型可能沒有獨立浴室，
+            傳統日式住宿也可能有不同於一般商務酒店的入住規定。
+        </p>
 
-</section>
+        <p>
+            因此，在預訂酒店之前，除了確認價格、位置與交通之外，
+            也建議先查看酒店官方網站公布的訪客政策與入住條款。
+        </p>
 
+        <p>
+            <strong>📌 重要提醒：</strong>
+            酒店規定可能隨時間調整。
+            本頁主要提供住宿資訊整理，
+            實際訪客政策請以酒店當日公布的規定為準。
+        </p>
 
+    </div>
 
-<!-- =========================
-     Hotel List
-========================= -->
 
-<section class="hotel-section">
+    <!-- ===== Search ===== -->
 
-<h2>東京酒店列表</h2>
+    <div class="search-box">
 
-<p class="hotel-description">
-以下按照東京不同區域整理酒店資訊。
-可以使用搜尋框快速尋找酒店名稱或地區。
-</p>
+        <input
+            type="text"
+            id="hotelSearch"
+            placeholder="🔎 搜尋酒店名稱或地區，例如：淺草、新橋、品川..."
+            onkeyup="searchHotel()"
+        >
 
+        <div class="search-hint">
+            輸入酒店名稱或地區即可快速篩選
+        </div>
 
-<!-- 搜尋 -->
+    </div>
 
-<div class="search-box">
 
-<input
-type="text"
-id="hotelSearch"
-placeholder="🔍 搜尋酒店名稱或地區，例如：新宿、澀谷、池袋..."
-onkeyup="searchHotel()">
+    <!-- ===== Hotel List ===== -->
 
-</div>
+    <div class="hotel-list" id="hotelList">
 
 
+        <!-- 01 -->
 
-<!-- 表格 -->
+        <div class="hotel-row">
 
-<div class="table-wrapper">
+            <div class="number">01</div>
 
-<table class="hotel-table">
+            <div class="hotel-name">
+                レンタルルーム プレジャー
+            </div>
 
-<thead>
+            <div class="area">
+                新橋
+            </div>
 
-<tr>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=レンタルルーム%20プレジャー%20東京"
+            >
+                查看 Google →
+            </a>
 
-<th>
-酒店名稱
-</th>
+        </div>
 
-<th>
-地區
-</th>
 
-<th>
-訪客資訊
-</th>
+        <!-- 02 -->
 
-<th>
-Google
-</th>
+        <div class="hotel-row">
 
-</tr>
+            <div class="number">02</div>
 
-</thead>
+            <div class="hotel-name">
+                ビオス 新橋レンタルルーム
+            </div>
 
+            <div class="area">
+                新橋
+            </div>
 
-<tbody id="hotelTable">
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=ビオス%20新橋レンタルルーム%20東京"
+            >
+                查看 Google →
+            </a>
 
+        </div>
 
-<!-- =========================
-     酒店 1
-========================= -->
 
-<tr>
+        <!-- 03 -->
 
-<td>
+        <div class="hotel-row">
 
-<div class="hotel-name">
-東京新宿酒店
-</div>
+            <div class="number">03</div>
 
-</td>
+            <div class="hotel-name">
+                eyes
+            </div>
 
-<td>
+            <div class="area">
+                東京
+            </div>
 
-<span class="hotel-area">
-新宿
-</span>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=eyes%20東京"
+            >
+                查看 Google →
+            </a>
 
-</td>
+        </div>
 
-<td>
 
-<div class="policy">
-建議入住前確認酒店最新訪客規定
-</div>
+        <!-- 04 -->
 
-</td>
+        <div class="hotel-row">
 
-<td>
+            <div class="number">04</div>
 
-<a
-class="google-btn"
-href="https://www.google.com/maps/search/?api=1&query=Tokyo+Shinjuku+Hotel"
-target="_blank"
-rel="noopener noreferrer">
+            <div class="hotel-name">
+                urbanight
+            </div>
 
-查看 Google →
+            <div class="area">
+                新橋
+            </div>
 
-</a>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=urbanight%20新橋%20東京"
+            >
+                查看 Google →
+            </a>
 
-</td>
+        </div>
 
-</tr>
 
+        <!-- 05 -->
 
+        <div class="hotel-row">
 
-<!-- =========================
-     酒店 2
-========================= -->
+            <div class="number">05</div>
 
-<tr>
+            <div class="hotel-name">
+                Kyo-wa Hotel Kameido
+                <small>きょうわホテル亀戸</small>
+            </div>
 
-<td>
+            <div class="area">
+                龜戶
+            </div>
 
-<div class="hotel-name">
-東京澀谷酒店
-</div>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=Kyo-wa%20Hotel%20Kameido%20Tokyo"
+            >
+                查看 Google →
+            </a>
 
-</td>
+        </div>
 
-<td>
 
-<span class="hotel-area">
-澀谷
-</span>
+        <!-- 06 -->
 
-</td>
+        <div class="hotel-row">
 
-<td>
+            <div class="number">06</div>
 
-<div class="policy">
-建議入住前確認酒店最新訪客規定
-</div>
+            <div class="hotel-name">
+                御宿 野乃浅草
+                <small>天然温泉 凌雲の湯</small>
+            </div>
 
-</td>
+            <div class="area">
+                淺草
+            </div>
 
-<td>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=御宿%20野乃浅草%20東京"
+            >
+                查看 Google →
+            </a>
 
-<a
-class="google-btn"
-href="https://www.google.com/maps/search/?api=1&query=Tokyo+Shibuya+Hotel"
-target="_blank"
-rel="noopener noreferrer">
+        </div>
 
-查看 Google →
 
-</a>
+        <!-- 07 -->
 
-</td>
+        <div class="hotel-row">
 
-</tr>
+            <div class="number">07</div>
 
+            <div class="hotel-name">
+                アプレ
+            </div>
 
+            <div class="area">
+                新橋
+            </div>
 
-<!-- =========================
-     酒店 3
-========================= -->
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=アプレ%20新橋%20東京"
+            >
+                查看 Google →
+            </a>
 
-<tr>
+        </div>
 
-<td>
 
-<div class="hotel-name">
-東京池袋酒店
-</div>
+        <!-- 08 -->
 
-</td>
+        <div class="hotel-row">
 
-<td>
+            <div class="number">08</div>
 
-<span class="hotel-area">
-池袋
-</span>
+            <div class="hotel-name">
+                ホテルリコルド
+            </div>
 
-</td>
+            <div class="area">
+                東京
+            </div>
 
-<td>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=ホテルリコルド%20東京"
+            >
+                查看 Google →
+            </a>
 
-<div class="policy">
-建議入住前確認酒店最新訪客規定
-</div>
+        </div>
 
-</td>
 
-<td>
+        <!-- 09 -->
 
-<a
-class="google-btn"
-href="https://www.google.com/maps/search/?api=1&query=Tokyo+Ikebukuro+Hotel"
-target="_blank"
-rel="noopener noreferrer">
+        <div class="hotel-row">
 
-查看 Google →
+            <div class="number">09</div>
 
-</a>
+            <div class="hotel-name">
+                stay&go入谷北
+            </div>
 
-</td>
+            <div class="area">
+                入谷
+            </div>
 
-</tr>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=stay%26go入谷北%20東京"
+            >
+                查看 Google →
+            </a>
 
+        </div>
 
 
-<!-- =========================
-     酒店 4
-========================= -->
+        <!-- 10 -->
 
-<tr>
+        <div class="hotel-row">
 
-<td>
+            <div class="number">10</div>
 
-<div class="hotel-name">
-東京上野酒店
-</div>
+            <div class="hotel-name">
+                キャンパスヴィレッジ椎名町
+            </div>
 
-</td>
+            <div class="area">
+                椎名町
+            </div>
 
-<td>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=キャンパスヴィレッジ椎名町%20東京"
+            >
+                查看 Google →
+            </a>
 
-<span class="hotel-area">
-上野
-</span>
+        </div>
 
-</td>
 
-<td>
+        <!-- 11 -->
 
-<div class="policy">
-建議入住前確認酒店最新訪客規定
-</div>
+        <div class="hotel-row">
 
-</td>
+            <div class="number">11</div>
 
-<td>
+            <div class="hotel-name">
+                東京大学 目白台インターナショナル・ビレッジ
+            </div>
 
-<a
-class="google-btn"
-href="https://www.google.com/maps/search/?api=1&query=Tokyo+Ueno+Hotel"
-target="_blank"
-rel="noopener noreferrer">
+            <div class="area">
+                目白台
+            </div>
 
-查看 Google →
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=東京大学%20目白台インターナショナル%20ビレッジ%20東京"
+            >
+                查看 Google →
+            </a>
 
-</a>
+        </div>
 
-</td>
 
-</tr>
+        <!-- 12 -->
 
+        <div class="hotel-row">
 
+            <div class="number">12</div>
 
-<!-- =========================
-     酒店 5
-========================= -->
+            <div class="hotel-name">
+                ホップイン東京浅草
+            </div>
 
-<tr>
+            <div class="area">
+                淺草
+            </div>
 
-<td>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=ホップイン東京浅草%20東京"
+            >
+                查看 Google →
+            </a>
 
-<div class="hotel-name">
-東京淺草酒店
-</div>
+        </div>
 
-</td>
 
-<td>
+        <!-- 13 -->
 
-<span class="hotel-area">
-淺草
-</span>
+        <div class="hotel-row">
 
-</td>
+            <div class="number">13</div>
 
-<td>
+            <div class="hotel-name">
+                品川東武飯店
+            </div>
 
-<div class="policy">
-建議入住前確認酒店最新訪客規定
-</div>
+            <div class="area">
+                品川
+            </div>
 
-</td>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=品川東武飯店%20東京"
+            >
+                查看 Google →
+            </a>
 
-<td>
+        </div>
 
-<a
-class="google-btn"
-href="https://www.google.com/maps/search/?api=1&query=Tokyo+Asakusa+Hotel"
-target="_blank"
-rel="noopener noreferrer">
 
-查看 Google →
+        <!-- 14 -->
 
-</a>
+        <div class="hotel-row">
 
-</td>
+            <div class="number">14</div>
 
-</tr>
+            <div class="hotel-name">
+                ホテルディーキューブ
+            </div>
 
+            <div class="area">
+                東京
+            </div>
 
-</tbody>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=ホテルディーキューブ%20東京"
+            >
+                查看 Google →
+            </a>
 
-</table>
+        </div>
 
-</div>
 
-</section>
+        <!-- 15 -->
 
+        <div class="hotel-row">
 
+            <div class="number">15</div>
 
-<!-- =========================
-     Reminder
-========================= -->
+            <div class="hotel-name">
+                ホテルたかしま
+            </div>
 
-<section class="reminder">
+            <div class="area">
+                東京
+            </div>
 
-<h2>📌 入住前提醒</h2>
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=ホテルたかしま%20東京"
+            >
+                查看 Google →
+            </a>
 
-<p>
-如果酒店網站沒有清楚列出訪客規定，
-建議直接向酒店確認最新政策。
-</p>
+        </div>
 
-<p style="margin-top:8px;">
-酒店的入住規定可能因時間、房型及住宿政策而有所不同，
-實際情況請以酒店官方資訊為準。
-</p>
 
-</section>
+        <!-- 16 -->
 
+        <div class="hotel-row">
+
+            <div class="number">16</div>
+
+            <div class="hotel-name">
+                ホテルＬ
+            </div>
+
+            <div class="area">
+                東京
+            </div>
+
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=ホテルL%20東京"
+            >
+                查看 Google →
+            </a>
+
+        </div>
+
+
+        <!-- 17 -->
+
+        <div class="hotel-row">
+
+            <div class="number">17</div>
+
+            <div class="hotel-name">
+                hotel min.
+            </div>
+
+            <div class="area">
+                東京
+            </div>
+
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=hotel%20min.%20Tokyo"
+            >
+                查看 Google →
+            </a>
+
+        </div>
+
+
+        <!-- 18 -->
+
+        <div class="hotel-row">
+
+            <div class="number">18</div>
+
+            <div class="hotel-name">
+                ハイツエム
+            </div>
+
+            <div class="area">
+                東京
+            </div>
+
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=ハイツエム%20東京"
+            >
+                查看 Google →
+            </a>
+
+        </div>
+
+
+        <!-- 19 -->
+
+        <div class="hotel-row">
+
+            <div class="number">19</div>
+
+            <div class="hotel-name">
+                東京東區酒店 櫂會
+            </div>
+
+            <div class="area">
+                東京東區
+            </div>
+
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=東京東區酒店%20櫂會%20東京"
+            >
+                查看 Google →
+            </a>
+
+        </div>
+
+
+        <!-- 20 -->
+
+        <div class="hotel-row">
+
+            <div class="number">20</div>
+
+            <div class="hotel-name">
+                Hotel B-Girl
+            </div>
+
+            <div class="area">
+                東京
+            </div>
+
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=Hotel%20B-Girl%20Tokyo"
+            >
+                查看 Google →
+            </a>
+
+        </div>
+
+
+        <!-- 21 -->
+
+        <div class="hotel-row">
+
+            <div class="number">21</div>
+
+            <div class="hotel-name">
+                東京豊洲 万葉倶楽部
+            </div>
+
+            <div class="area">
+                豐洲
+            </div>
+
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=東京豊洲%20万葉倶楽部%20東京"
+            >
+                查看 Google →
+            </a>
+
+        </div>
+
+
+        <!-- 22 -->
+
+        <div class="hotel-row">
+
+            <div class="number">22</div>
+
+            <div class="hotel-name">
+                Re-Zan
+            </div>
+
+            <div class="area">
+                東京
+            </div>
+
+            <a
+                class="google-btn"
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=Re-Zan%20Tokyo"
+            >
+                查看 Google →
+            </a>
+
+        </div>
+
+
+    </div>
 
 </main>
 
 
+<!-- ===== Footer ===== -->
 
 <footer>
 
-小櫻｜東京大阪旅遊生活<br>
-
-JAPAN TRAVEL & LIFE
+    © 2026 小櫻｜東京大阪旅遊生活
 
 </footer>
 
 
-
 <script>
 
-/* =========================
-   酒店搜尋功能
-========================= */
+/* ===== 酒店搜尋 ===== */
 
 function searchHotel(){
 
-    let input =
+    const input =
         document
         .getElementById("hotelSearch")
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
 
-    let rows =
+    const hotels =
         document
-        .querySelectorAll("#hotelTable tr");
+        .querySelectorAll(".hotel-row");
 
+    hotels.forEach(function(hotel){
 
-    rows.forEach(function(row){
-
-        let text =
-            row.innerText
-            .toLowerCase();
+        const text =
+            hotel.innerText.toLowerCase();
 
         if(text.includes(input)){
 
-            row.style.display = "";
+            hotel.style.display = "grid";
 
         }else{
 
-            row.style.display = "none";
+            hotel.style.display = "none";
 
         }
 
